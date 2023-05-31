@@ -1,0 +1,86 @@
+{
+  "data": {
+    "id": 369,
+    "name": "Europe",
+    "slug": "1",
+    "tdwg_code": "1",
+    "tdwg_level": 1,
+    "species_count": 0,
+    "links": {
+      "self": "/api/v1/distributions/1",
+      "plants": "/api/v1/distributions/1/plants",
+      "species": "/api/v1/distributions/1/species"
+    },
+    "parent": null,
+    "children": [
+      {
+        "id": 370,
+        "name": "Northern Europe",
+        "slug": "10",
+        "tdwg_code": "10",
+        "tdwg_level": 2,
+        "species_count": 0,
+        "links": {
+          "self": "/api/v1/distributions/10",
+          "plants": "/api/v1/distributions/10/plants",
+          "species": "/api/v1/distributions/10/species"
+        }
+      },
+      {
+        "id": 373,
+        "name": "Middle Europe",
+        "slug": "11",
+        "tdwg_code": "11",
+        "tdwg_level": 2,
+        "species_count": 0,
+        "links": {
+          "self": "/api/v1/distributions/11",
+          "plants": "/api/v1/distributions/11/plants",
+          "species": "/api/v1/distributions/11/species"
+        }
+      },
+      {
+        "id": 380,
+        "name": "Southwestern Europe",
+        "slug": "12",
+        "tdwg_code": "12",
+        "tdwg_level": 2,
+        "species_count": 0,
+        "links": {
+          "self": "/api/v1/distributions/12",
+          "plants": "/api/v1/distributions/12/plants",
+          "species": "/api/v1/distributions/12/species"
+        }
+      },
+      {
+        "id": 387,
+        "name": "Southeastern Europe",
+        "slug": "13",
+        "tdwg_code": "13",
+        "tdwg_level": 2,
+        "species_count": 0,
+        "links": {
+          "self": "/api/v1/distributions/13",
+          "plants": "/api/v1/distributions/13/plants",
+          "species": "/api/v1/distributions/13/species"
+        }
+      },
+      {
+        "id": 400,
+        "name": "Eastern Europe",
+        "slug": "14",
+        "tdwg_code": "14",
+        "tdwg_level": 2,
+        "species_count": 0,
+        "links": {
+          "self": "/api/v1/distributions/14",
+          "plants": "/api/v1/distributions/14/plants",
+          "species": "/api/v1/distributions/14/species"
+        }
+      }
+    ]
+  },
+  "meta": {
+    "last_modified": "2020-12-13T12:27:12.159Z"
+  }
+}

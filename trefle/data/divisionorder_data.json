@@ -1,0 +1,49 @@
+{
+  "data": {
+    "id": 1,
+    "name": "Dipsacales",
+    "slug": "dipsacales",
+    "links": {
+      "self": "/api/v1/division_orders/dipsacales",
+      "division_class": "/api/v1/division_classes/magnoliopsida"
+    },
+    "division_class": {
+      "id": 1,
+      "name": "Magnoliopsida",
+      "slug": "magnoliopsida",
+      "links": {
+        "self": "/api/v1/division_classes/magnoliopsida",
+        "division": "/api/v1/divisions/magnoliophyta"
+      },
+      "division": {
+        "id": 1,
+        "name": "Magnoliophyta",
+        "slug": "magnoliophyta",
+        "links": {
+          "self": "/api/v1/divisions/magnoliophyta",
+          "subkingdom": "/api/v1/subkingdoms/tracheobionta"
+        },
+        "subkingdom": {
+          "id": 1,
+          "name": "Tracheobionta",
+          "slug": "tracheobionta",
+          "links": {
+            "self": "/api/v1/subkingdoms/tracheobionta",
+            "kingdom": "/api/v1/kingdoms/plantae"
+          },
+          "kingdom": {
+            "id": 1,
+            "name": "Plantae",
+            "slug": "plantae",
+            "links": {
+              "self": "/api/v1/kingdoms/plantae"
+            }
+          }
+        }
+      }
+    }
+  },
+  "meta": {
+    "last_modified": "2020-12-13T12:27:14.649Z"
+  }
+}

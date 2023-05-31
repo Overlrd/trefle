@@ -1,0 +1,2 @@
+class TrefleException(Exception):
+    pass

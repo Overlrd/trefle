@@ -1,0 +1,1816 @@
+{
+  "data": {
+    "id": 183086,
+    "common_name": "European mountain ash",
+    "slug": "sorbus-aucuparia",
+    "scientific_name": "Sorbus aucuparia",
+    "year": 1753,
+    "bibliography": "Sp. Pl.: 477 (1753)",
+    "author": "L.",
+    "status": "accepted",
+    "rank": "species",
+    "family_common_name": "Rose family",
+    "genus_id": 677,
+    "observations": "Europe to Iran",
+    "vegetable": false,
+    "image_url": "https://bs.floristic.org/image/o/63073d2fbf45b90701279405ecc2eec0272906ed",
+    "genus": "Sorbus",
+    "family": "Rosaceae",
+    "duration": null,
+    "edible_part": null,
+    "edible": false,
+    "images": {
+      "flower": [
+        {
+          "id": 3224245,
+          "image_url": "https://bs.floristic.org/image/o/bc825c453a701cc910cc492fc224262e591df53f",
+          "copyright": "Taken May 1, 2019 by Philippe Beerschneider (cc-by-sa)"
+        },
+        {
+          "id": 3224246,
+          "image_url": "https://bs.floristic.org/image/o/44109a3176b20f649d83ef88da4ada63aa5116e7",
+          "copyright": "Taken May 8, 2020 by pauline thibaut (cc-by-sa)"
+        },
+        {
+          "id": 3224247,
+          "image_url": "https://bs.floristic.org/image/o/222b2a019ef0eb8d50485c6468141249c70b5f60",
+          "copyright": "Taken May 4, 2018 by kezako (cc-by-sa)"
+        },
+        {
+          "id": 3224248,
+          "image_url": "https://bs.floristic.org/image/o/0d7cb91a71197aa419729f67b541f20587a12ad4",
+          "copyright": "Taken Aug 5, 2019 by lara simone (cc-by-sa)"
+        },
+        {
+          "id": 3224249,
+          "image_url": "https://bs.floristic.org/image/o/ee57e2b9f107a0a1f40539f07ace04c4faab40ef",
+          "copyright": "Taken May 19, 2019 by Tompkins Mr (cc-by-sa)"
+        },
+        {
+          "id": 3560529,
+          "image_url": "https://bs.floristic.org/image/o/7f298b9a042bd69e3af84eb164c84cac2a5da0a2",
+          "copyright": "Taken Jul 12, 2020 by Diana Postill (cc-by-sa)"
+        },
+        {
+          "id": 3560530,
+          "image_url": "https://bs.floristic.org/image/o/b3457b84313e8ee8c8ed142704637203707f7aac",
+          "copyright": "Taken May 11, 2020 by Maike Maike Guttau-Klammt (cc-by-sa)"
+        }
+      ],
+      "leaf": [
+        {
+          "id": 3224235,
+          "image_url": "https://bs.floristic.org/image/o/821411293fdd840080ed33ce10a62de582e9e54e",
+          "copyright": "Taken Nov 19, 2019 by Marcello Di Manno (cc-by-sa)"
+        },
+        {
+          "id": 3224236,
+          "image_url": "https://bs.floristic.org/image/o/d6c06c7bbe4dbe20b6aac3ac591dc634ee0b1dbd",
+          "copyright": "Taken Oct 11, 2019 by miguel angel del viejo (cc-by-sa)"
+        },
+        {
+          "id": 3224237,
+          "image_url": "https://bs.floristic.org/image/o/555af8ac214f976e19bdca1cd08433724969cb96",
+          "copyright": "Taken Sep 1, 2017 by gaetan jougla (cc-by-sa)"
+        },
+        {
+          "id": 3224238,
+          "image_url": "https://bs.floristic.org/image/o/c03b0753b581b75f505fb3c9d739523c7140cbc8",
+          "copyright": "Taken Oct 11, 2019 by miguel angel del viejo (cc-by-sa)"
+        },
+        {
+          "id": 3224239,
+          "image_url": "https://bs.floristic.org/image/o/b292f49fb05933d8cb1bcf6ecb392bddf3605d8e",
+          "copyright": "Taken Aug 2, 2019 by Waldemar Zeja (cc-by-sa)"
+        }
+      ],
+      "habit": [
+        {
+          "id": 3224240,
+          "image_url": "https://bs.floristic.org/image/o/85c09a11649f66821c2e38d2f344a5423349531f",
+          "copyright": "Taken Aug 17, 2015 by Tela Botanica − Liliane ROUBAUDI (cc-by-sa)"
+        },
+        {
+          "id": 3224241,
+          "image_url": "https://bs.floristic.org/image/o/ba2f245e81e401269d37d004a05a42e7c0003784",
+          "copyright": "Taken Jun 19, 2017 by girlfreitag (cc-by-sa)"
+        },
+        {
+          "id": 3224242,
+          "image_url": "https://bs.floristic.org/image/o/f10b3e79e779664f46ce44dbf377d52bb86b7ccd",
+          "copyright": "Taken Sep 4, 2019 by Valentin (cc-by-sa)"
+        },
+        {
+          "id": 3224243,
+          "image_url": "https://bs.floristic.org/image/o/0b95bdf677ba7524889551a0cef43b060c130f42",
+          "copyright": "Taken Jul 31, 2019 by Sabina Hartmann (cc-by-sa)"
+        },
+        {
+          "id": 3224244,
+          "image_url": "https://bs.floristic.org/image/o/63073d2fbf45b90701279405ecc2eec0272906ed",
+          "copyright": "Taken Aug 2, 2019 by Waldemar Zeja (cc-by-sa)"
+        }
+      ],
+      "fruit": [
+        {
+          "id": 3224230,
+          "image_url": "https://bs.floristic.org/image/o/970da7122e862d5c3596b6db62bfb4f0c2a719a2",
+          "copyright": "Taken Oct 11, 2019 by miguel angel del viejo (cc-by-sa)"
+        },
+        {
+          "id": 3224231,
+          "image_url": "https://bs.floristic.org/image/o/e35b07c4940e98093da8c55a01c817a587a29835",
+          "copyright": "Taken Sep 29, 2017 by syrachta (cc-by-sa)"
+        },
+        {
+          "id": 3224232,
+          "image_url": "https://bs.floristic.org/image/o/3050ac2644fa2aa4e8f3bf3f2d4aadeafbdc0a72",
+          "copyright": "Taken Nov 22, 2017 by Annette Sarpette (cc-by-sa)"
+        },
+        {
+          "id": 3224233,
+          "image_url": "https://bs.floristic.org/image/o/c6c742054a643851f9657aa26c4c1bdda246ef95",
+          "copyright": "Taken Aug 2, 2019 by Waldemar Zeja (cc-by-sa)"
+        },
+        {
+          "id": 3224234,
+          "image_url": "https://bs.floristic.org/image/o/2b007b06c67f516c2324a04d1a520236d150d458",
+          "copyright": "Taken Jul 29, 2017 by Federica Guareri (cc-by-sa)"
+        }
+      ],
+      "bark": [
+        {
+          "id": 3224225,
+          "image_url": "https://bs.floristic.org/image/o/cf4b2bd8c6af15229006ae3012b971b7e625aa6a",
+          "copyright": "Taken Dec 22, 2019 by Renaud Brochiero (cc-by-sa)"
+        },
+        {
+          "id": 3224226,
+          "image_url": "https://bs.floristic.org/image/o/4dccd8b2cbd5a1b667b6569918a579f7f12c4f4f",
+          "copyright": "Taken Sep 4, 2019 by Valentin (cc-by-sa)"
+        },
+        {
+          "id": 3224227,
+          "image_url": "https://bs.floristic.org/image/o/7b99c71488b1d60719b699750fb4bce0425a0323",
+          "copyright": "Taken Jun 29, 2019 by thomas (cc-by-sa)"
+        },
+        {
+          "id": 3224228,
+          "image_url": "https://bs.floristic.org/image/o/0e477d1fe7a9032deacb66e34539c91a0587802f",
+          "copyright": "Taken Nov 19, 2019 by Marcello Di Manno (cc-by-sa)"
+        },
+        {
+          "id": 3224229,
+          "image_url": "https://bs.floristic.org/image/o/62041fc2908269bf1e599b2413680575a5ad3c17",
+          "copyright": "Taken Jul 31, 2019 by Sabina Hartmann (cc-by-sa)"
+        }
+      ],
+      "other": [
+        {
+          "id": 3224250,
+          "image_url": "https://bs.floristic.org/image/o/434f6c4cc020d0b483643c12ebe63e8226bc20fc",
+          "copyright": "Taken May 15, 2018 by Eliane Ollinger (cc-by-sa)"
+        },
+        {
+          "id": 3224251,
+          "image_url": "https://bs.floristic.org/image/o/e4729627fecd27bff7114a66e96448c3efb74ded",
+          "copyright": "Taken Aug 23, 2014 by Tela Botanica − Liliane Roubaudi (cc-by-sa)"
+        },
+        {
+          "id": 3224252,
+          "image_url": "https://bs.floristic.org/image/o/05e54d69eb2ce2605cf0bee1d10c40fb98d271ce",
+          "copyright": "Taken Aug 4, 2014 by Tela Botanica − Liliane Roubaudi (cc-by-sa)"
+        },
+        {
+          "id": 3224253,
+          "image_url": "https://bs.floristic.org/image/o/b09c00fb331aa92f9feb534e5f3891b84f9d0700",
+          "copyright": "Taken Jul 28, 2019 by Yolanda (cc-by-sa)"
+        },
+        {
+          "id": 3224254,
+          "image_url": "https://bs.floristic.org/image/o/54002669f2dcc5a19f99c5d979c1be3a28a0ef5f",
+          "copyright": "Taken Aug 4, 2014 by Tela Botanica − Liliane Roubaudi (cc-by-sa)"
+        },
+        {
+          "id": 3560531,
+          "image_url": "https://bs.floristic.org/image/o/8dab15ba1187d82634e40e93e628d6a7df692631",
+          "copyright": "Taken Apr 20, 2018 by Yoan MARTIN (cc-by-sa)"
+        },
+        {
+          "id": 3560532,
+          "image_url": "https://bs.floristic.org/image/o/50c32d7daa474d979e6f252516c1cd3f761f7fac",
+          "copyright": "Taken Jul 23, 2014 by Tela Botanica − Louise Boulangeat (cc-by-sa)"
+        }
+      ]
+    },
+    "common_names": {
+      "en": [
+        "Quickbeam",
+        "Rowan",
+        "Rowan-berry",
+        "European mountain ash",
+        "European mountain-ash",
+        "European Rowan",
+        "Rowan,  moutain ash",
+        "Mountain ash",
+        "Dogberry",
+        "Rowan tree"
+      ],
+      "ar": [
+        "شجرة السمن"
+      ],
+      "an": [
+        "Bixorder"
+      ],
+      "hy": [
+        "Արոսի Կուզնեցովի"
+      ],
+      "az": [
+        "Adi quşarmudu"
+      ],
+      "eu": [
+        "Otsalizar"
+      ],
+      "be": [
+        "Рабіна звычайная"
+      ],
+      "bg": [
+        "Офика"
+      ],
+      "ca": [
+        "Moixera de guilla"
+      ],
+      "cv": [
+        "Пилеш"
+      ],
+      "hr": [
+        "Jarebika"
+      ],
+      "cs": [
+        "Jeřáb ptačí"
+      ],
+      "da": [
+        "Røn",
+        "Almindelig Røn"
+      ],
+      "nl": [
+        "Wilde lijsterbes",
+        "Gewone Lijsterbes"
+      ],
+      "eo": [
+        "Birdokaptista sorbuso"
+      ],
+      "et": [
+        "Harilik pihlakas"
+      ],
+      "fi": [
+        "Kotipihlaja",
+        "(koti)pihlaja"
+      ],
+      "fr": [
+        "Sorbier des oiseleurs",
+        "Sorbier des oiseaux",
+        "Arbre à grives",
+        "Cormier des chasseurs",
+        "Sorbier des grives",
+        "Sorbier sauvage",
+        "Thymier"
+      ],
+      "gl": [
+        "Capudre"
+      ],
+      "ka": [
+        "ცირცელი",
+        "Ცირცელი"
+      ],
+      "de": [
+        "Eberesche",
+        "Vogelbeerbaum",
+        "Vogelkirsche",
+        "Gewöhnliche Vogelbeere",
+        "Vogelbeere",
+        "Eberesche, Vogelbeere",
+        "Gewöhnliche Eberesche",
+        "Quitschbeere"
+      ],
+      "he": [
+        "סורבוס"
+      ],
+      "hu": [
+        "Madárberkenye"
+      ],
+      "is": [
+        "Ilmreynir",
+        "Rúgur",
+        "Reyniviður"
+      ],
+      "it": [
+        "Sorbo degli uccellatori",
+        "Sorbo selvatico"
+      ],
+      "kk": [
+        "Кәдімгі шетен"
+      ],
+      "lv": [
+        "Parastais pīlādzis"
+      ],
+      "lt": [
+        "Paprastasis šermukšnis"
+      ],
+      "mk": [
+        "Офика"
+      ],
+      "gv": [
+        "Keirn"
+      ],
+      "se": [
+        "Skábit"
+      ],
+      "no": [
+        "Rogn"
+      ],
+      "nb": [
+        "Rogn"
+      ],
+      "nn": [
+        "Rogn"
+      ],
+      "oc": [
+        "Sorbièr dels auselaires"
+      ],
+      "fa": [
+        "زبان‌گنجشک کوهی"
+      ],
+      "pl": [
+        "Jarząb pospolity",
+        "Jarzębina"
+      ],
+      "pt": [
+        "Sorveira",
+        "Tramazeira"
+      ],
+      "ru": [
+        "Rjabina obyknovennaja",
+        "Рябина"
+      ],
+      "sr": [
+        "Мукиња"
+      ],
+      "sk": [
+        "Jarabina vtáčia"
+      ],
+      "sl": [
+        "Jerebika"
+      ],
+      "es": [
+        "Serbal de cazadores",
+        "Serbal del cazador",
+        "Serbal de los cazadores",
+        "Serbal de los pajareros",
+        "Serbal silvestre"
+      ],
+      "sv": [
+        "Rönn",
+        "(koti)pihlaja"
+      ],
+      "tr": [
+        "Kuş üvezi"
+      ],
+      "uk": [
+        "Горобина звичайна"
+      ],
+      "wa": [
+        "Håvurna"
+      ],
+      "cy": [
+        "Criafolen"
+      ],
+      "fin": [
+        "(koti)pihlaja"
+      ],
+      "swe": [
+        "(koti)pihlaja",
+        "rönn"
+      ],
+      "dan": [
+        "almindelig røn"
+      ],
+      "deu": [
+        "eberesche",
+        "eberesche, vogelbeere",
+        "vogelbeerbaum",
+        "vogelkirsche"
+      ],
+      "eng": [
+        "european mountain-ash",
+        "quickbeam",
+        "rowan",
+        "rowan,  moutain ash",
+        "rowan-berry",
+        "mountain ash",
+        "dogberry",
+        "rowan tree"
+      ],
+      "nno": [
+        "rogn"
+      ],
+      "nob": [
+        "rogn"
+      ],
+      "fra": [
+        "sorbier des oiseleurs"
+      ],
+      "por": [
+        "sorveira"
+      ],
+      "nld": [
+        "wilde lijsterbes"
+      ]
+    },
+    "distribution": {
+      "native": [
+        "Albania",
+        "Austria",
+        "Baltic States",
+        "Belarus",
+        "Belgium",
+        "Bulgaria",
+        "Central European Rus",
+        "Czechoslovakia",
+        "Delaware",
+        "Denmark",
+        "East European Russia",
+        "Finland",
+        "France",
+        "Germany",
+        "Great Britain",
+        "Greece",
+        "Hungary",
+        "Iceland",
+        "Iran",
+        "Ireland",
+        "Italy",
+        "Krym",
+        "Netherlands",
+        "North Caucasus",
+        "North European Russi",
+        "Northwest European R",
+        "Norway",
+        "Poland",
+        "Portugal",
+        "Romania",
+        "Spain",
+        "Sweden",
+        "Switzerland",
+        "Transcaucasus",
+        "Turkey",
+        "Turkey-in-Europe",
+        "Turkmenistan",
+        "Ukraine",
+        "Yugoslavia"
+      ],
+      "introduced": [
+        "Alaska",
+        "Alberta",
+        "Argentina South",
+        "British Columbia",
+        "California",
+        "Colorado",
+        "Connecticut",
+        "District of Columbia",
+        "Falkland Is.",
+        "Idaho",
+        "Illinois",
+        "Indiana",
+        "Iowa",
+        "Maine",
+        "Maryland",
+        "Masachusettes",
+        "Michigan",
+        "Minnesota",
+        "Montana",
+        "Nebraska",
+        "New Brunswick",
+        "New Hampshire",
+        "New Jersey",
+        "New York",
+        "New Zealand North",
+        "New Zealand South",
+        "Newfoundland",
+        "North Dakota",
+        "Nova Scotia",
+        "Ohio",
+        "Ontario",
+        "Oregon",
+        "Pennsylvania",
+        "Prince Edward I.",
+        "Québec",
+        "Rhode I.",
+        "Saskatchewan",
+        "South Carolina",
+        "South Dakota",
+        "Utah",
+        "Vermont",
+        "Washington",
+        "West Virginia",
+        "Wisconsin",
+        "Wyoming"
+      ]
+    },
+    "distributions": {
+      "native": [
+        {
+          "id": 93,
+          "name": "Albania",
+          "slug": "alb",
+          "tdwg_code": "ALB",
+          "tdwg_level": 3,
+          "species_count": 3,
+          "links": {
+            "self": "/api/v1/distributions/alb",
+            "plants": "/api/v1/distributions/alb/plants",
+            "species": "/api/v1/distributions/alb/species"
+          }
+        },
+        {
+          "id": 275,
+          "name": "Austria",
+          "slug": "aut",
+          "tdwg_code": "AUT",
+          "tdwg_level": 3,
+          "species_count": 3,
+          "links": {
+            "self": "/api/v1/distributions/aut",
+            "plants": "/api/v1/distributions/aut/plants",
+            "species": "/api/v1/distributions/aut/species"
+          }
+        },
+        {
+          "id": 276,
+          "name": "Baltic States",
+          "slug": "blt",
+          "tdwg_code": "BLT",
+          "tdwg_level": 3,
+          "species_count": 1,
+          "links": {
+            "self": "/api/v1/distributions/blt",
+            "plants": "/api/v1/distributions/blt/plants",
+            "species": "/api/v1/distributions/blt/species"
+          }
+        },
+        {
+          "id": 277,
+          "name": "Belarus",
+          "slug": "blr",
+          "tdwg_code": "BLR",
+          "tdwg_level": 3,
+          "species_count": 2,
+          "links": {
+            "self": "/api/v1/distributions/blr",
+            "plants": "/api/v1/distributions/blr/plants",
+            "species": "/api/v1/distributions/blr/species"
+          }
+        },
+        {
+          "id": 278,
+          "name": "Belgium",
+          "slug": "bgm",
+          "tdwg_code": "BGM",
+          "tdwg_level": 3,
+          "species_count": 3,
+          "links": {
+            "self": "/api/v1/distributions/bgm",
+            "plants": "/api/v1/distributions/bgm/plants",
+            "species": "/api/v1/distributions/bgm/species"
+          }
+        },
+        {
+          "id": 94,
+          "name": "Bulgaria",
+          "slug": "bul",
+          "tdwg_code": "BUL",
+          "tdwg_level": 3,
+          "species_count": 4,
+          "links": {
+            "self": "/api/v1/distributions/bul",
+            "plants": "/api/v1/distributions/bul/plants",
+            "species": "/api/v1/distributions/bul/species"
+          }
+        },
+        {
+          "id": 279,
+          "name": "Central European Rus",
+          "slug": "ruc",
+          "tdwg_code": "RUC",
+          "tdwg_level": 3,
+          "species_count": 1,
+          "links": {
+            "self": "/api/v1/distributions/ruc",
+            "plants": "/api/v1/distributions/ruc/plants",
+            "species": "/api/v1/distributions/ruc/species"
+          }
+        },
+        {
+          "id": 99,
+          "name": "Czechoslovakia",
+          "slug": "cze",
+          "tdwg_code": "CZE",
+          "tdwg_level": 3,
+          "species_count": 3,
+          "links": {
+            "self": "/api/v1/distributions/cze",
+            "plants": "/api/v1/distributions/cze/plants",
+            "species": "/api/v1/distributions/cze/species"
+          }
+        },
+        {
+          "id": 228,
+          "name": "Delaware",
+          "slug": "del",
+          "tdwg_code": "DEL",
+          "tdwg_level": 3,
+          "species_count": 3,
+          "links": {
+            "self": "/api/v1/distributions/del",
+            "plants": "/api/v1/distributions/del/plants",
+            "species": "/api/v1/distributions/del/species"
+          }
+        },
+        {
+          "id": 280,
+          "name": "Denmark",
+          "slug": "den",
+          "tdwg_code": "DEN",
+          "tdwg_level": 3,
+          "species_count": 2,
+          "links": {
+            "self": "/api/v1/distributions/den",
+            "plants": "/api/v1/distributions/den/plants",
+            "species": "/api/v1/distributions/den/species"
+          }
+        },
+        {
+          "id": 281,
+          "name": "East European Russia",
+          "slug": "rue",
+          "tdwg_code": "RUE",
+          "tdwg_level": 3,
+          "species_count": 1,
+          "links": {
+            "self": "/api/v1/distributions/rue",
+            "plants": "/api/v1/distributions/rue/plants",
+            "species": "/api/v1/distributions/rue/species"
+          }
+        },
+        {
+          "id": 282,
+          "name": "Finland",
+          "slug": "fin",
+          "tdwg_code": "FIN",
+          "tdwg_level": 3,
+          "species_count": 1,
+          "links": {
+            "self": "/api/v1/distributions/fin",
+            "plants": "/api/v1/distributions/fin/plants",
+            "species": "/api/v1/distributions/fin/species"
+          }
+        },
+        {
+          "id": 126,
+          "name": "France",
+          "slug": "fra",
+          "tdwg_code": "FRA",
+          "tdwg_level": 3,
+          "species_count": 3,
+          "links": {
+            "self": "/api/v1/distributions/fra",
+            "plants": "/api/v1/distributions/fra/plants",
+            "species": "/api/v1/distributions/fra/species"
+          }
+        },
+        {
+          "id": 284,
+          "name": "Germany",
+          "slug": "ger",
+          "tdwg_code": "GER",
+          "tdwg_level": 3,
+          "species_count": 3,
+          "links": {
+            "self": "/api/v1/distributions/ger",
+            "plants": "/api/v1/distributions/ger/plants",
+            "species": "/api/v1/distributions/ger/species"
+          }
+        },
+        {
+          "id": 127,
+          "name": "Great Britain",
+          "slug": "grb",
+          "tdwg_code": "GRB",
+          "tdwg_level": 3,
+          "species_count": 3,
+          "links": {
+            "self": "/api/v1/distributions/grb",
+            "plants": "/api/v1/distributions/grb/plants",
+            "species": "/api/v1/distributions/grb/species"
+          }
+        },
+        {
+          "id": 95,
+          "name": "Greece",
+          "slug": "grc",
+          "tdwg_code": "GRC",
+          "tdwg_level": 3,
+          "species_count": 3,
+          "links": {
+            "self": "/api/v1/distributions/grc",
+            "plants": "/api/v1/distributions/grc/plants",
+            "species": "/api/v1/distributions/grc/species"
+          }
+        },
+        {
+          "id": 285,
+          "name": "Hungary",
+          "slug": "hun",
+          "tdwg_code": "HUN",
+          "tdwg_level": 3,
+          "species_count": 3,
+          "links": {
+            "self": "/api/v1/distributions/hun",
+            "plants": "/api/v1/distributions/hun/plants",
+            "species": "/api/v1/distributions/hun/species"
+          }
+        },
+        {
+          "id": 314,
+          "name": "Iceland",
+          "slug": "ice",
+          "tdwg_code": "ICE",
+          "tdwg_level": 3,
+          "species_count": 1,
+          "links": {
+            "self": "/api/v1/distributions/ice",
+            "plants": "/api/v1/distributions/ice/plants",
+            "species": "/api/v1/distributions/ice/species"
+          }
+        },
+        {
+          "id": 11,
+          "name": "Iran",
+          "slug": "irn",
+          "tdwg_code": "IRN",
+          "tdwg_level": 3,
+          "species_count": 2,
+          "links": {
+            "self": "/api/v1/distributions/irn",
+            "plants": "/api/v1/distributions/irn/plants",
+            "species": "/api/v1/distributions/irn/species"
+          }
+        },
+        {
+          "id": 286,
+          "name": "Ireland",
+          "slug": "ire",
+          "tdwg_code": "IRE",
+          "tdwg_level": 3,
+          "species_count": 1,
+          "links": {
+            "self": "/api/v1/distributions/ire",
+            "plants": "/api/v1/distributions/ire/plants",
+            "species": "/api/v1/distributions/ire/species"
+          }
+        },
+        {
+          "id": 119,
+          "name": "Italy",
+          "slug": "ita",
+          "tdwg_code": "ITA",
+          "tdwg_level": 3,
+          "species_count": 3,
+          "links": {
+            "self": "/api/v1/distributions/ita",
+            "plants": "/api/v1/distributions/ita/plants",
+            "species": "/api/v1/distributions/ita/species"
+          }
+        },
+        {
+          "id": 268,
+          "name": "Krym",
+          "slug": "kry",
+          "tdwg_code": "KRY",
+          "tdwg_level": 3,
+          "species_count": 2,
+          "links": {
+            "self": "/api/v1/distributions/kry",
+            "plants": "/api/v1/distributions/kry/plants",
+            "species": "/api/v1/distributions/kry/species"
+          }
+        },
+        {
+          "id": 287,
+          "name": "Netherlands",
+          "slug": "net",
+          "tdwg_code": "NET",
+          "tdwg_level": 3,
+          "species_count": 2,
+          "links": {
+            "self": "/api/v1/distributions/net",
+            "plants": "/api/v1/distributions/net/plants",
+            "species": "/api/v1/distributions/net/species"
+          }
+        },
+        {
+          "id": 288,
+          "name": "North Caucasus",
+          "slug": "ncs",
+          "tdwg_code": "NCS",
+          "tdwg_level": 3,
+          "species_count": 1,
+          "links": {
+            "self": "/api/v1/distributions/ncs",
+            "plants": "/api/v1/distributions/ncs/plants",
+            "species": "/api/v1/distributions/ncs/species"
+          }
+        },
+        {
+          "id": 289,
+          "name": "North European Russi",
+          "slug": "run",
+          "tdwg_code": "RUN",
+          "tdwg_level": 3,
+          "species_count": 1,
+          "links": {
+            "self": "/api/v1/distributions/run",
+            "plants": "/api/v1/distributions/run/plants",
+            "species": "/api/v1/distributions/run/species"
+          }
+        },
+        {
+          "id": 290,
+          "name": "Northwest European R",
+          "slug": "ruw",
+          "tdwg_code": "RUW",
+          "tdwg_level": 3,
+          "species_count": 1,
+          "links": {
+            "self": "/api/v1/distributions/ruw",
+            "plants": "/api/v1/distributions/ruw/plants",
+            "species": "/api/v1/distributions/ruw/species"
+          }
+        },
+        {
+          "id": 291,
+          "name": "Norway",
+          "slug": "nor",
+          "tdwg_code": "NOR",
+          "tdwg_level": 3,
+          "species_count": 2,
+          "links": {
+            "self": "/api/v1/distributions/nor",
+            "plants": "/api/v1/distributions/nor/plants",
+            "species": "/api/v1/distributions/nor/species"
+          }
+        },
+        {
+          "id": 292,
+          "name": "Poland",
+          "slug": "pol",
+          "tdwg_code": "POL",
+          "tdwg_level": 3,
+          "species_count": 3,
+          "links": {
+            "self": "/api/v1/distributions/pol",
+            "plants": "/api/v1/distributions/pol/plants",
+            "species": "/api/v1/distributions/pol/species"
+          }
+        },
+        {
+          "id": 134,
+          "name": "Portugal",
+          "slug": "por",
+          "tdwg_code": "POR",
+          "tdwg_level": 3,
+          "species_count": 3,
+          "links": {
+            "self": "/api/v1/distributions/por",
+            "plants": "/api/v1/distributions/por/plants",
+            "species": "/api/v1/distributions/por/species"
+          }
+        },
+        {
+          "id": 96,
+          "name": "Romania",
+          "slug": "rom",
+          "tdwg_code": "ROM",
+          "tdwg_level": 3,
+          "species_count": 3,
+          "links": {
+            "self": "/api/v1/distributions/rom",
+            "plants": "/api/v1/distributions/rom/plants",
+            "species": "/api/v1/distributions/rom/species"
+          }
+        },
+        {
+          "id": 135,
+          "name": "Spain",
+          "slug": "spa",
+          "tdwg_code": "SPA",
+          "tdwg_level": 3,
+          "species_count": 3,
+          "links": {
+            "self": "/api/v1/distributions/spa",
+            "plants": "/api/v1/distributions/spa/plants",
+            "species": "/api/v1/distributions/spa/species"
+          }
+        },
+        {
+          "id": 293,
+          "name": "Sweden",
+          "slug": "swe",
+          "tdwg_code": "SWE",
+          "tdwg_level": 3,
+          "species_count": 2,
+          "links": {
+            "self": "/api/v1/distributions/swe",
+            "plants": "/api/v1/distributions/swe/plants",
+            "species": "/api/v1/distributions/swe/species"
+          }
+        },
+        {
+          "id": 294,
+          "name": "Switzerland",
+          "slug": "swi",
+          "tdwg_code": "SWI",
+          "tdwg_level": 3,
+          "species_count": 3,
+          "links": {
+            "self": "/api/v1/distributions/swi",
+            "plants": "/api/v1/distributions/swi/plants",
+            "species": "/api/v1/distributions/swi/species"
+          }
+        },
+        {
+          "id": 272,
+          "name": "Transcaucasus",
+          "slug": "tcs",
+          "tdwg_code": "TCS",
+          "tdwg_level": 3,
+          "species_count": 2,
+          "links": {
+            "self": "/api/v1/distributions/tcs",
+            "plants": "/api/v1/distributions/tcs/plants",
+            "species": "/api/v1/distributions/tcs/species"
+          }
+        },
+        {
+          "id": 107,
+          "name": "Turkey",
+          "slug": "tur",
+          "tdwg_code": "TUR",
+          "tdwg_level": 3,
+          "species_count": 2,
+          "links": {
+            "self": "/api/v1/distributions/tur",
+            "plants": "/api/v1/distributions/tur/plants",
+            "species": "/api/v1/distributions/tur/species"
+          }
+        },
+        {
+          "id": 97,
+          "name": "Turkey-in-Europe",
+          "slug": "tue",
+          "tdwg_code": "TUE",
+          "tdwg_level": 3,
+          "species_count": 3,
+          "links": {
+            "self": "/api/v1/distributions/tue",
+            "plants": "/api/v1/distributions/tue/plants",
+            "species": "/api/v1/distributions/tue/species"
+          }
+        },
+        {
+          "id": 337,
+          "name": "Turkmenistan",
+          "slug": "tkm",
+          "tdwg_code": "TKM",
+          "tdwg_level": 3,
+          "species_count": 3,
+          "links": {
+            "self": "/api/v1/distributions/tkm",
+            "plants": "/api/v1/distributions/tkm/plants",
+            "species": "/api/v1/distributions/tkm/species"
+          }
+        },
+        {
+          "id": 273,
+          "name": "Ukraine",
+          "slug": "ukr",
+          "tdwg_code": "UKR",
+          "tdwg_level": 3,
+          "species_count": 3,
+          "links": {
+            "self": "/api/v1/distributions/ukr",
+            "plants": "/api/v1/distributions/ukr/plants",
+            "species": "/api/v1/distributions/ukr/species"
+          }
+        },
+        {
+          "id": 98,
+          "name": "Yugoslavia",
+          "slug": "yug",
+          "tdwg_code": "YUG",
+          "tdwg_level": 3,
+          "species_count": 3,
+          "links": {
+            "self": "/api/v1/distributions/yug",
+            "plants": "/api/v1/distributions/yug/plants",
+            "species": "/api/v1/distributions/yug/species"
+          }
+        }
+      ],
+      "introduced": [
+        {
+          "id": 325,
+          "name": "Alaska",
+          "slug": "ask",
+          "tdwg_code": "ASK",
+          "tdwg_level": 3,
+          "species_count": 2,
+          "links": {
+            "self": "/api/v1/distributions/ask",
+            "plants": "/api/v1/distributions/ask/plants",
+            "species": "/api/v1/distributions/ask/species"
+          }
+        },
+        {
+          "id": 326,
+          "name": "Alberta",
+          "slug": "abt",
+          "tdwg_code": "ABT",
+          "tdwg_level": 3,
+          "species_count": 2,
+          "links": {
+            "self": "/api/v1/distributions/abt",
+            "plants": "/api/v1/distributions/abt/plants",
+            "species": "/api/v1/distributions/abt/species"
+          }
+        },
+        {
+          "id": 264,
+          "name": "Argentina South",
+          "slug": "ags",
+          "tdwg_code": "AGS",
+          "tdwg_level": 3,
+          "species_count": 1,
+          "links": {
+            "self": "/api/v1/distributions/ags",
+            "plants": "/api/v1/distributions/ags/plants",
+            "species": "/api/v1/distributions/ags/species"
+          }
+        },
+        {
+          "id": 297,
+          "name": "British Columbia",
+          "slug": "brc",
+          "tdwg_code": "BRC",
+          "tdwg_level": 3,
+          "species_count": 2,
+          "links": {
+            "self": "/api/v1/distributions/brc",
+            "plants": "/api/v1/distributions/brc/plants",
+            "species": "/api/v1/distributions/brc/species"
+          }
+        },
+        {
+          "id": 211,
+          "name": "California",
+          "slug": "cal",
+          "tdwg_code": "CAL",
+          "tdwg_level": 3,
+          "species_count": 2,
+          "links": {
+            "self": "/api/v1/distributions/cal",
+            "plants": "/api/v1/distributions/cal/plants",
+            "species": "/api/v1/distributions/cal/species"
+          }
+        },
+        {
+          "id": 298,
+          "name": "Colorado",
+          "slug": "col",
+          "tdwg_code": "COL",
+          "tdwg_level": 3,
+          "species_count": 3,
+          "links": {
+            "self": "/api/v1/distributions/col",
+            "plants": "/api/v1/distributions/col/plants",
+            "species": "/api/v1/distributions/col/species"
+          }
+        },
+        {
+          "id": 252,
+          "name": "Connecticut",
+          "slug": "cnt",
+          "tdwg_code": "CNT",
+          "tdwg_level": 3,
+          "species_count": 2,
+          "links": {
+            "self": "/api/v1/distributions/cnt",
+            "plants": "/api/v1/distributions/cnt/plants",
+            "species": "/api/v1/distributions/cnt/species"
+          }
+        },
+        {
+          "id": 229,
+          "name": "District of Columbia",
+          "slug": "wdc",
+          "tdwg_code": "WDC",
+          "tdwg_level": 3,
+          "species_count": 2,
+          "links": {
+            "self": "/api/v1/distributions/wdc",
+            "plants": "/api/v1/distributions/wdc/plants",
+            "species": "/api/v1/distributions/wdc/species"
+          }
+        },
+        {
+          "id": 345,
+          "name": "Falkland Is.",
+          "slug": "fal",
+          "tdwg_code": "FAL",
+          "tdwg_level": 3,
+          "species_count": 1,
+          "links": {
+            "self": "/api/v1/distributions/fal",
+            "plants": "/api/v1/distributions/fal/plants",
+            "species": "/api/v1/distributions/fal/species"
+          }
+        },
+        {
+          "id": 327,
+          "name": "Idaho",
+          "slug": "ida",
+          "tdwg_code": "IDA",
+          "tdwg_level": 3,
+          "species_count": 2,
+          "links": {
+            "self": "/api/v1/distributions/ida",
+            "plants": "/api/v1/distributions/ida/plants",
+            "species": "/api/v1/distributions/ida/species"
+          }
+        },
+        {
+          "id": 145,
+          "name": "Illinois",
+          "slug": "ill",
+          "tdwg_code": "ILL",
+          "tdwg_level": 3,
+          "species_count": 4,
+          "links": {
+            "self": "/api/v1/distributions/ill",
+            "plants": "/api/v1/distributions/ill/plants",
+            "species": "/api/v1/distributions/ill/species"
+          }
+        },
+        {
+          "id": 230,
+          "name": "Indiana",
+          "slug": "ini",
+          "tdwg_code": "INI",
+          "tdwg_level": 3,
+          "species_count": 3,
+          "links": {
+            "self": "/api/v1/distributions/ini",
+            "plants": "/api/v1/distributions/ini/plants",
+            "species": "/api/v1/distributions/ini/species"
+          }
+        },
+        {
+          "id": 231,
+          "name": "Iowa",
+          "slug": "iow",
+          "tdwg_code": "IOW",
+          "tdwg_level": 3,
+          "species_count": 3,
+          "links": {
+            "self": "/api/v1/distributions/iow",
+            "plants": "/api/v1/distributions/iow/plants",
+            "species": "/api/v1/distributions/iow/species"
+          }
+        },
+        {
+          "id": 253,
+          "name": "Maine",
+          "slug": "mai",
+          "tdwg_code": "MAI",
+          "tdwg_level": 3,
+          "species_count": 3,
+          "links": {
+            "self": "/api/v1/distributions/mai",
+            "plants": "/api/v1/distributions/mai/plants",
+            "species": "/api/v1/distributions/mai/species"
+          }
+        },
+        {
+          "id": 233,
+          "name": "Maryland",
+          "slug": "mry",
+          "tdwg_code": "MRY",
+          "tdwg_level": 3,
+          "species_count": 2,
+          "links": {
+            "self": "/api/v1/distributions/mry",
+            "plants": "/api/v1/distributions/mry/plants",
+            "species": "/api/v1/distributions/mry/species"
+          }
+        },
+        {
+          "id": 254,
+          "name": "Masachusettes",
+          "slug": "mas",
+          "tdwg_code": "MAS",
+          "tdwg_level": 3,
+          "species_count": 2,
+          "links": {
+            "self": "/api/v1/distributions/mas",
+            "plants": "/api/v1/distributions/mas/plants",
+            "species": "/api/v1/distributions/mas/species"
+          }
+        },
+        {
+          "id": 234,
+          "name": "Michigan",
+          "slug": "mic",
+          "tdwg_code": "MIC",
+          "tdwg_level": 3,
+          "species_count": 3,
+          "links": {
+            "self": "/api/v1/distributions/mic",
+            "plants": "/api/v1/distributions/mic/plants",
+            "species": "/api/v1/distributions/mic/species"
+          }
+        },
+        {
+          "id": 257,
+          "name": "Minnesota",
+          "slug": "min",
+          "tdwg_code": "MIN",
+          "tdwg_level": 3,
+          "species_count": 3,
+          "links": {
+            "self": "/api/v1/distributions/min",
+            "plants": "/api/v1/distributions/min/plants",
+            "species": "/api/v1/distributions/min/species"
+          }
+        },
+        {
+          "id": 328,
+          "name": "Montana",
+          "slug": "mnt",
+          "tdwg_code": "MNT",
+          "tdwg_level": 3,
+          "species_count": 2,
+          "links": {
+            "self": "/api/v1/distributions/mnt",
+            "plants": "/api/v1/distributions/mnt/plants",
+            "species": "/api/v1/distributions/mnt/species"
+          }
+        },
+        {
+          "id": 262,
+          "name": "Nebraska",
+          "slug": "neb",
+          "tdwg_code": "NEB",
+          "tdwg_level": 3,
+          "species_count": 3,
+          "links": {
+            "self": "/api/v1/distributions/neb",
+            "plants": "/api/v1/distributions/neb/plants",
+            "species": "/api/v1/distributions/neb/species"
+          }
+        },
+        {
+          "id": 260,
+          "name": "New Brunswick",
+          "slug": "nbr",
+          "tdwg_code": "NBR",
+          "tdwg_level": 3,
+          "species_count": 1,
+          "links": {
+            "self": "/api/v1/distributions/nbr",
+            "plants": "/api/v1/distributions/nbr/plants",
+            "species": "/api/v1/distributions/nbr/species"
+          }
+        },
+        {
+          "id": 255,
+          "name": "New Hampshire",
+          "slug": "nwh",
+          "tdwg_code": "NWH",
+          "tdwg_level": 3,
+          "species_count": 2,
+          "links": {
+            "self": "/api/v1/distributions/nwh",
+            "plants": "/api/v1/distributions/nwh/plants",
+            "species": "/api/v1/distributions/nwh/species"
+          }
+        },
+        {
+          "id": 236,
+          "name": "New Jersey",
+          "slug": "nwj",
+          "tdwg_code": "NWJ",
+          "tdwg_level": 3,
+          "species_count": 2,
+          "links": {
+            "self": "/api/v1/distributions/nwj",
+            "plants": "/api/v1/distributions/nwj/plants",
+            "species": "/api/v1/distributions/nwj/species"
+          }
+        },
+        {
+          "id": 237,
+          "name": "New York",
+          "slug": "nwy",
+          "tdwg_code": "NWY",
+          "tdwg_level": 3,
+          "species_count": 4,
+          "links": {
+            "self": "/api/v1/distributions/nwy",
+            "plants": "/api/v1/distributions/nwy/plants",
+            "species": "/api/v1/distributions/nwy/species"
+          }
+        },
+        {
+          "id": 132,
+          "name": "New Zealand North",
+          "slug": "nzn",
+          "tdwg_code": "NZN",
+          "tdwg_level": 3,
+          "species_count": 2,
+          "links": {
+            "self": "/api/v1/distributions/nzn",
+            "plants": "/api/v1/distributions/nzn/plants",
+            "species": "/api/v1/distributions/nzn/species"
+          }
+        },
+        {
+          "id": 133,
+          "name": "New Zealand South",
+          "slug": "nzs",
+          "tdwg_code": "NZS",
+          "tdwg_level": 3,
+          "species_count": 1,
+          "links": {
+            "self": "/api/v1/distributions/nzs",
+            "plants": "/api/v1/distributions/nzs/plants",
+            "species": "/api/v1/distributions/nzs/species"
+          }
+        },
+        {
+          "id": 300,
+          "name": "Newfoundland",
+          "slug": "nfl",
+          "tdwg_code": "NFL",
+          "tdwg_level": 3,
+          "species_count": 1,
+          "links": {
+            "self": "/api/v1/distributions/nfl",
+            "plants": "/api/v1/distributions/nfl/plants",
+            "species": "/api/v1/distributions/nfl/species"
+          }
+        },
+        {
+          "id": 332,
+          "name": "North Dakota",
+          "slug": "nda",
+          "tdwg_code": "NDA",
+          "tdwg_level": 3,
+          "species_count": 2,
+          "links": {
+            "self": "/api/v1/distributions/nda",
+            "plants": "/api/v1/distributions/nda/plants",
+            "species": "/api/v1/distributions/nda/species"
+          }
+        },
+        {
+          "id": 261,
+          "name": "Nova Scotia",
+          "slug": "nsc",
+          "tdwg_code": "NSC",
+          "tdwg_level": 3,
+          "species_count": 1,
+          "links": {
+            "self": "/api/v1/distributions/nsc",
+            "plants": "/api/v1/distributions/nsc/plants",
+            "species": "/api/v1/distributions/nsc/species"
+          }
+        },
+        {
+          "id": 239,
+          "name": "Ohio",
+          "slug": "ohi",
+          "tdwg_code": "OHI",
+          "tdwg_level": 3,
+          "species_count": 3,
+          "links": {
+            "self": "/api/v1/distributions/ohi",
+            "plants": "/api/v1/distributions/ohi/plants",
+            "species": "/api/v1/distributions/ohi/species"
+          }
+        },
+        {
+          "id": 240,
+          "name": "Ontario",
+          "slug": "ont",
+          "tdwg_code": "ONT",
+          "tdwg_level": 3,
+          "species_count": 2,
+          "links": {
+            "self": "/api/v1/distributions/ont",
+            "plants": "/api/v1/distributions/ont/plants",
+            "species": "/api/v1/distributions/ont/species"
+          }
+        },
+        {
+          "id": 315,
+          "name": "Oregon",
+          "slug": "ore",
+          "tdwg_code": "ORE",
+          "tdwg_level": 3,
+          "species_count": 2,
+          "links": {
+            "self": "/api/v1/distributions/ore",
+            "plants": "/api/v1/distributions/ore/plants",
+            "species": "/api/v1/distributions/ore/species"
+          }
+        },
+        {
+          "id": 241,
+          "name": "Pennsylvania",
+          "slug": "pen",
+          "tdwg_code": "PEN",
+          "tdwg_level": 3,
+          "species_count": 3,
+          "links": {
+            "self": "/api/v1/distributions/pen",
+            "plants": "/api/v1/distributions/pen/plants",
+            "species": "/api/v1/distributions/pen/species"
+          }
+        },
+        {
+          "id": 301,
+          "name": "Prince Edward I.",
+          "slug": "pei",
+          "tdwg_code": "PEI",
+          "tdwg_level": 3,
+          "species_count": 1,
+          "links": {
+            "self": "/api/v1/distributions/pei",
+            "plants": "/api/v1/distributions/pei/plants",
+            "species": "/api/v1/distributions/pei/species"
+          }
+        },
+        {
+          "id": 242,
+          "name": "Québec",
+          "slug": "que",
+          "tdwg_code": "QUE",
+          "tdwg_level": 3,
+          "species_count": 2,
+          "links": {
+            "self": "/api/v1/distributions/que",
+            "plants": "/api/v1/distributions/que/plants",
+            "species": "/api/v1/distributions/que/species"
+          }
+        },
+        {
+          "id": 256,
+          "name": "Rhode I.",
+          "slug": "rho",
+          "tdwg_code": "RHO",
+          "tdwg_level": 3,
+          "species_count": 2,
+          "links": {
+            "self": "/api/v1/distributions/rho",
+            "plants": "/api/v1/distributions/rho/plants",
+            "species": "/api/v1/distributions/rho/species"
+          }
+        },
+        {
+          "id": 330,
+          "name": "Saskatchewan",
+          "slug": "sas",
+          "tdwg_code": "SAS",
+          "tdwg_level": 3,
+          "species_count": 2,
+          "links": {
+            "self": "/api/v1/distributions/sas",
+            "plants": "/api/v1/distributions/sas/plants",
+            "species": "/api/v1/distributions/sas/species"
+          }
+        },
+        {
+          "id": 192,
+          "name": "South Carolina",
+          "slug": "sca",
+          "tdwg_code": "SCA",
+          "tdwg_level": 3,
+          "species_count": 2,
+          "links": {
+            "self": "/api/v1/distributions/sca",
+            "plants": "/api/v1/distributions/sca/plants",
+            "species": "/api/v1/distributions/sca/species"
+          }
+        },
+        {
+          "id": 331,
+          "name": "South Dakota",
+          "slug": "sda",
+          "tdwg_code": "SDA",
+          "tdwg_level": 3,
+          "species_count": 2,
+          "links": {
+            "self": "/api/v1/distributions/sda",
+            "plants": "/api/v1/distributions/sda/plants",
+            "species": "/api/v1/distributions/sda/species"
+          }
+        },
+        {
+          "id": 341,
+          "name": "Utah",
+          "slug": "uta",
+          "tdwg_code": "UTA",
+          "tdwg_level": 3,
+          "species_count": 2,
+          "links": {
+            "self": "/api/v1/distributions/uta",
+            "plants": "/api/v1/distributions/uta/plants",
+            "species": "/api/v1/distributions/uta/species"
+          }
+        },
+        {
+          "id": 243,
+          "name": "Vermont",
+          "slug": "ver",
+          "tdwg_code": "VER",
+          "tdwg_level": 3,
+          "species_count": 3,
+          "links": {
+            "self": "/api/v1/distributions/ver",
+            "plants": "/api/v1/distributions/ver/plants",
+            "species": "/api/v1/distributions/ver/species"
+          }
+        },
+        {
+          "id": 302,
+          "name": "Washington",
+          "slug": "was",
+          "tdwg_code": "WAS",
+          "tdwg_level": 3,
+          "species_count": 2,
+          "links": {
+            "self": "/api/v1/distributions/was",
+            "plants": "/api/v1/distributions/was/plants",
+            "species": "/api/v1/distributions/was/species"
+          }
+        },
+        {
+          "id": 244,
+          "name": "West Virginia",
+          "slug": "wva",
+          "tdwg_code": "WVA",
+          "tdwg_level": 3,
+          "species_count": 2,
+          "links": {
+            "self": "/api/v1/distributions/wva",
+            "plants": "/api/v1/distributions/wva/plants",
+            "species": "/api/v1/distributions/wva/species"
+          }
+        },
+        {
+          "id": 258,
+          "name": "Wisconsin",
+          "slug": "wis",
+          "tdwg_code": "WIS",
+          "tdwg_level": 3,
+          "species_count": 3,
+          "links": {
+            "self": "/api/v1/distributions/wis",
+            "plants": "/api/v1/distributions/wis/plants",
+            "species": "/api/v1/distributions/wis/species"
+          }
+        },
+        {
+          "id": 346,
+          "name": "Wyoming",
+          "slug": "wyo",
+          "tdwg_code": "WYO",
+          "tdwg_level": 3,
+          "species_count": 2,
+          "links": {
+            "self": "/api/v1/distributions/wyo",
+            "plants": "/api/v1/distributions/wyo/plants",
+            "species": "/api/v1/distributions/wyo/species"
+          }
+        }
+      ]
+    },
+    "flower": {
+      "color": null,
+      "conspicuous": true
+    },
+    "foliage": {
+      "texture": "fine",
+      "color": null,
+      "leaf_retention": false
+    },
+    "fruit_or_seed": {
+      "conspicuous": true,
+      "color": null,
+      "shape": null,
+      "seed_persistence": true
+    },
+    "specifications": {
+      "ligneous_type": "tree",
+      "growth_form": "Single Stem",
+      "growth_habit": "Tree, Shrub",
+      "growth_rate": "Rapid",
+      "average_height": {
+        "cm": 1066
+      },
+      "maximum_height": {
+        "cm": 1066
+      },
+      "nitrogen_fixation": "None",
+      "shape_and_orientation": "Erect",
+      "toxicity": "none"
+    },
+    "growth": {
+      "description": null,
+      "sowing": null,
+      "days_to_harvest": null,
+      "row_spacing": {
+        "cm": null
+      },
+      "spread": {
+        "cm": null
+      },
+      "ph_maximum": 7.5,
+      "ph_minimum": 5.5,
+      "light": 7,
+      "atmospheric_humidity": 5,
+      "growth_months": null,
+      "bloom_months": null,
+      "fruit_months": null,
+      "minimum_precipitation": {
+        "mm": 711
+      },
+      "maximum_precipitation": {
+        "mm": 1524
+      },
+      "minimum_root_depth": {
+        "cm": 71
+      },
+      "minimum_temperature": {
+        "deg_f": -32,
+        "deg_c": -36
+      },
+      "maximum_temperature": {
+        "deg_f": null,
+        "deg_c": null
+      },
+      "soil_nutriments": 3,
+      "soil_salinity": 0,
+      "soil_texture": 4,
+      "soil_humidity": null
+    },
+    "links": {
+      "self": "/api/v1/species/sorbus-aucuparia",
+      "plant": "/api/v1/plants/sorbus-aucuparia",
+      "genus": "/api/v1/genus/sorbus"
+    },
+    "synonyms": [
+      {
+        "id": 558334,
+        "name": "Pyrenia aucuparia",
+        "author": "(L.) Clairv.",
+        "sources": []
+      },
+      {
+        "id": 558335,
+        "name": "Aucuparia silvestris",
+        "author": "Medik.",
+        "sources": []
+      },
+      {
+        "id": 558336,
+        "name": "Pyrus lanuginosa",
+        "author": "(Kit.) DC.",
+        "sources": []
+      },
+      {
+        "id": 558337,
+        "name": "Sorbus altaica",
+        "author": "Koehne",
+        "sources": []
+      },
+      {
+        "id": 558338,
+        "name": "Sorbus lanuginosa",
+        "author": "Kit.",
+        "sources": []
+      },
+      {
+        "id": 558339,
+        "name": "Sorbus cordata",
+        "author": "Gand.",
+        "sources": []
+      },
+      {
+        "id": 558340,
+        "name": "Sorbus subserrata",
+        "author": "Opiz",
+        "sources": []
+      },
+      {
+        "id": 558341,
+        "name": "Sorbus anadyrensis",
+        "author": "Kom.",
+        "sources": []
+      },
+      {
+        "id": 558342,
+        "name": "Sorbus boissieri",
+        "author": "C.K.Schneid.",
+        "sources": []
+      },
+      {
+        "id": 558343,
+        "name": "Sorbus caucasigena",
+        "author": "Kom. ex Gatsch.",
+        "sources": []
+      },
+      {
+        "id": 558344,
+        "name": "Mespilus aucuparia",
+        "author": "(L.) Scop.",
+        "sources": []
+      },
+      {
+        "id": 558345,
+        "name": "Sorbus monticola",
+        "author": "Gand.",
+        "sources": []
+      },
+      {
+        "id": 644180,
+        "name": "Pyrus boissieri",
+        "author": "(C.K.Schneid.) M.F.Fay & Christenh.",
+        "sources": []
+      }
+    ],
+    "sources": [
+      {
+        "last_update": "2020-06-21T20:44:49.000Z",
+        "id": "SOAU",
+        "name": "USDA",
+        "url": "https://plants.usda.gov/core/profile?symbol=SOAU",
+        "citation": "https://plants.sc.egov.usda.gov/core/profile?symbol=SOAU"
+      },
+      {
+        "last_update": "2020-07-04T19:21:51.000Z",
+        "id": "18/1.0.1.0.1",
+        "name": "CATMINAT",
+        "url": null,
+        "citation": null
+      },
+      {
+        "last_update": "2020-06-16T18:42:34.000Z",
+        "id": "Sorbus aucuparia L.",
+        "name": "PlantNet",
+        "url": "https://identify.plantnet.org/species/the-plant-list/Sorbus aucuparia L.",
+        "citation": null
+      },
+      {
+        "last_update": "2020-06-16T18:42:34.000Z",
+        "id": "3012167",
+        "name": "GBIF",
+        "url": "https://www.gbif.org/species/3012167",
+        "citation": null
+      },
+      {
+        "last_update": "2020-07-18T07:41:16.000Z",
+        "id": "urn:lsid:ipni.org:names:741641-1",
+        "name": "POWO",
+        "url": "http://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:741641-1",
+        "citation": "POWO (2019). Plants of the World Online. Facilitated by the Royal Botanic Gardens, Kew. Published on the Internet; http://www.plantsoftheworldonline.org/ Retrieved 2020-07-18"
+      }
+    ]
+  },
+  "meta": {
+    "images_count": 37,
+    "sources_count": 5,
+    "synonyms_count": 13,
+    "last_modified": "2020-12-13T12:27:15.760Z"
+  }
+}

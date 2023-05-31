@@ -1,0 +1,60 @@
+{
+  "data": {
+    "id": 3,
+    "name": "Pinaceae",
+    "common_name": "Pine family",
+    "slug": "pinaceae",
+    "links": {
+      "self": "/api/v1/families/pinaceae",
+      "division_order": "/api/v1/division_orders/pinales",
+      "genus": "/api/v1/families/pinaceae/genus"
+    },
+    "division_order": {
+      "id": 3,
+      "name": "Pinales",
+      "slug": "pinales",
+      "links": {
+        "self": "/api/v1/division_orders/pinales",
+        "division_class": "/api/v1/division_classes/pinopsida"
+      },
+      "division_class": {
+        "id": 2,
+        "name": "Pinopsida",
+        "slug": "pinopsida",
+        "links": {
+          "self": "/api/v1/division_classes/pinopsida",
+          "division": "/api/v1/divisions/coniferophyta"
+        },
+        "division": {
+          "id": 2,
+          "name": "Coniferophyta",
+          "slug": "coniferophyta",
+          "links": {
+            "self": "/api/v1/divisions/coniferophyta",
+            "subkingdom": "/api/v1/subkingdoms/tracheobionta"
+          },
+          "subkingdom": {
+            "id": 1,
+            "name": "Tracheobionta",
+            "slug": "tracheobionta",
+            "links": {
+              "self": "/api/v1/subkingdoms/tracheobionta",
+              "kingdom": "/api/v1/kingdoms/plantae"
+            },
+            "kingdom": {
+              "id": 1,
+              "name": "Plantae",
+              "slug": "plantae",
+              "links": {
+                "self": "/api/v1/kingdoms/plantae"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "meta": {
+    "last_modified": "2020-12-13T12:27:15.036Z"
+  }
+}

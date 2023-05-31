@@ -1,0 +1,27 @@
+{
+  "data": {
+    "id": 4,
+    "name": "Abies",
+    "slug": "abies",
+    "links": {
+      "self": "/api/v1/genus/abies",
+      "plants": "/api/v1/genus/abies/plants",
+      "species": "/api/v1/genus/abies/species",
+      "family": "/api/v1/families/pinaceae"
+    },
+    "family": {
+      "id": 3,
+      "name": "Pinaceae",
+      "common_name": "Pine family",
+      "slug": "pinaceae",
+      "links": {
+        "self": "/api/v1/families/pinaceae",
+        "division_order": "/api/v1/division_orders/pinales",
+        "genus": "/api/v1/families/pinaceae/genus"
+      }
+    }
+  },
+  "meta": {
+    "last_modified": "2020-12-13T12:27:15.734Z"
+  }
+}

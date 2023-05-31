@@ -1,0 +1,31 @@
+{
+  "data": {
+    "id": 1,
+    "name": "Magnoliophyta",
+    "slug": "magnoliophyta",
+    "links": {
+      "self": "/api/v1/divisions/magnoliophyta",
+      "subkingdom": "/api/v1/subkingdoms/tracheobionta"
+    },
+    "subkingdom": {
+      "id": 1,
+      "name": "Tracheobionta",
+      "slug": "tracheobionta",
+      "links": {
+        "self": "/api/v1/subkingdoms/tracheobionta",
+        "kingdom": "/api/v1/kingdoms/plantae"
+      },
+      "kingdom": {
+        "id": 1,
+        "name": "Plantae",
+        "slug": "plantae",
+        "links": {
+          "self": "/api/v1/kingdoms/plantae"
+        }
+      }
+    }
+  },
+  "meta": {
+    "last_modified": "2020-12-13T12:27:14.541Z"
+  }
+}

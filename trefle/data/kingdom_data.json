@@ -1,0 +1,13 @@
+{
+  "data": {
+    "id": 1,
+    "name": "Plantae",
+    "slug": "plantae",
+    "links": {
+      "self": "/api/v1/kingdoms/plantae"
+    }
+  },
+  "meta": {
+    "last_modified": "2020-12-13T12:27:14.511Z"
+  }
+}
