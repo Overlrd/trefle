@@ -31,13 +31,14 @@ class RestAdapter:
             # noinspection PyUnresolvedReferences
             requests.packages.urllib3.disable_warnings()
 
-    def _do(self, http_method: str, url: str, ep_params: Dict = None,
-            data: Dict = None, **kwargs) -> Result:
+    def _make_request(self, http_method: str, url: str, ep_params: Dict = None,
+                      data: Dict = None, **kwargs) -> Result:
         url = url.format(**kwargs)
         headers = {'x-api-key': self._api_key}
         log_line_pre = f"method={http_method}, url={url}, params={ep_params}"
         log_line_post = ', '.join((log_line_pre,
                                    "success={}, status_code={}, message={}"))
+
         # Log HTTP params and perform an HTTP request, catching and
         # re-raising any exceptions
         try:
@@ -68,10 +69,10 @@ class RestAdapter:
         raise TrefleException(f"{response.status_code}: {response.reason}")
 
     def get(self, url: str, ep_params: Dict = None, **kwargs) -> Result:
-        return self._do(http_method='get', url=url, ep_params=ep_params,
-                        kwargs=kwargs)
+        return self._make_request(http_method='get', url=url, ep_params=ep_params,
+                                  kwargs=kwargs)
 
     def post(self, url: str, ep_params: Dict = None, data: Dict = None,
              **kwargs) -> Result:
-        return self._do(http_method='post', url=url, ep_params=ep_params,
-                        data=data, kwargs=kwargs)
+        return self._make_request(http_method='post', url=url, ep_params=ep_params,
+                                  data=data, kwargs=kwargs)

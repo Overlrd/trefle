@@ -57,7 +57,7 @@ class URLs:
 
     def division_classes_url(self):
         return self._base_url + self._division_classes
-    
+
     def division_orders_url(self):
         return self._base_url + self._division_orders
 
@@ -136,3 +136,31 @@ class URLs:
         `base_url/corrections_url/species/{record_id}`\n
         """
         return self._base_url + self._submit_correction
+
+
+settings = {
+    "url": "https://trefle.io/{}",
+    "endpoints": {
+        "base": {
+            "kingdoms": "_",
+            "subkingdoms": "_",
+            "divisions": "_",
+            "division_classes": "_",
+            "division_orders": "_",
+            "families": "_",
+            "genus": "_",
+            "species": "_",
+            "plants": "_"
+        },
+        "search": {
+            "base": {
+                "plants": "_",
+                "species": "_",
+            },
+            "by_key": {
+                "plants_by_distributions": "distributions/{zone_id}/plants",
+                "plants_by_genus": ""
+            }
+        }
+    }
+}

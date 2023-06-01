@@ -1,23 +1,58 @@
-class Plantae:
-    """
-    The Trefle APi is structured as follows :
+class Image:
+    def __init__(self, id: int, image_url: str, copyright: str) -> None:
+        self.id = id
+        self.image_url = image_url
+        self.copyright = copyright
+
+class Images:
+    def __init__(
+        self,
+        flower: List[Image],
+        leaf: List[Image],
+        habit: List[Image],
+        fruit: List[Image],
+        bark: List[Image],
+        other: List[Image],
+    ) -> None:
+        self.flower = flower
+        self.leaf = leaf 
+        self.habit = habit
+        self.fruit = fruit 
+        self.bark = bark 
+        self.other = other 
+        
+"""
+    Data models representing objects from the trefle api .
+    The whole API structure is defined by the following classification:
+
 
     Kingdom
-      -> Subkingdom
+    -> Subkingdom
         -> Division
-          -> Division class
+        -> Division class
             -> Division order
-              -> Family
+            -> Family
                 -> Genus
-                  -> Plant
+                -> Plant
                     -> Species
 
-    The `Plantae` class is used as Kingdom to contain all the basic attributes of all the sub-items in the hierarchy
-    """
+    check https://docs.trefle.io/docs/guides/getting-started#the-trefle-structure
 
-    def __init__(self, id: int, slug: str, common_name: str = '', name: str = '',
-                 scientific_name: str = '', bibliography: str = '',
-                 author: str = '', year: int = 0) -> None:
+"""
+
+class Kingdom:
+    def __init__(self, 
+            id: int,
+            slug: str, 
+            common_name: str = '', 
+            name: str = '',
+            scientific_name: str = '', 
+            bibliography: str = '',
+            author: str = '', 
+            year: int = 0,
+            links: dict = None,
+                ) -> None:
+
         self.id = id
         self.name = name
         self.slug = slug
@@ -28,43 +63,43 @@ class Plantae:
         self.year = year
 
     def __repr__(self):
-        return f"{self.__class__.__name__} {self.id=} {self.scientific_name=} {self.name=} {self.common_name=}"
+        return f"{self.__class__.__name__} {self.id=} {self.scientific_name=} {self.common_name=}"
 
 
-class SubKingdom(Plantae):
-    def __init__(self, id: int, name: str, slug: str, kingdom: Plantae, **kwargs) -> None:
+class SubKingdom(Kingdom):
+    def __init__(self, id: int, name: str, slug: str, kingdom: Kingdom, **kwargs) -> None:
         super().__init__(id=id, name=name, slug=slug)
         self.kingdom = kingdom
 
 
-class Division(Plantae):
+class Division(Kingdom):
     def __init__(self, id: int, name: str, slug: str, subkingdom: SubKingdom, **kwargs) -> None:
         super().__init__(id=id, name=name, slug=slug)
         self.subkingdom = subkingdom
 
 
-class DivisionClass(Plantae):
+class DivisionClass(Kingdom):
     def __init__(self, id: int, name: str, slug: str,
                  division: Division, **kwargs) -> None:
         super().__init__(id=id, name=name, slug=slug)
         self.division = division
 
 
-class DivisionOrder(Plantae):
+class DivisionOrder(Kingdom):
     def __init__(self, id: int, name: str, slug: str,
                  division_class: DivisionClass, **kwargs) -> None:
         super().__init__(id=id, name=name, slug=slug)
         self.division_class = division_class
 
 
-class Family(Plantae):
+class Family(Kingdom):
     def __init__(self, id: int, name: str, common_name: str, slug: str,
                  division_order: DivisionOrder = '', **kwargs) -> None:
         super().__init__(id=id, name=name, slug=slug, common_name=common_name)
         self.division_order = division_order
 
 
-class Genus(Plantae):
+class Genus(Kingdom):
     def __init__(self, id: int, name: str, slug: str,
                  family: Family = '', **kwargs) -> None:
         super().__init__(id=id, name=name, slug=slug)
@@ -72,16 +107,41 @@ class Genus(Plantae):
         self.__dict__.update(kwargs)
 
 
-class Species(Plantae):
-    def __init__(self, id: int, genus: Genus, family: Family,
-                 duration=None, edible_part=None, vegetable=None,
-                 common_name: str = '', slug: str = '',
-                 scientific_name: str = '', year: int = 0, bibliography: str = '',
-                 author: str = '', status: str = '', rank: str = '', family_common_name: str = '',
-                 genus_id: int = 0, observations: str = '',
-                 image_url: str = '', edible: bool = '',  common_names: Dict[str, List[str]] = '', **kwargs) -> None:
-        super().__init__(id=id, common_name=common_name, scientific_name=scientific_name, slug=slug,
-                         bibliography=bibliography, author=author, year=year)
+class Species(Kingdom):
+    def __init__(
+        self,
+        id: int,
+        genus: Genus,
+        family: Family,
+        images: Images,
+        duration=None,
+        edible_part=None,
+        vegetable=None,
+        common_name: str = "",
+        slug: str = "",
+        scientific_name: str = "",
+        year: int = 0,
+        bibliography: str = "",
+        author: str = "",
+        status: str = "",
+        rank: str = "",
+        family_common_name: str = "",
+        genus_id: int = 0,
+        observations: str = "",
+        image_url: str = "",
+        edible: bool = "",
+        common_names: Dict[str, List[str]] = "",
+        **kwargs,
+    ) -> None:
+        super().__init__(
+            id=id,
+            common_name=common_name,
+            scientific_name=scientific_name,
+            slug=slug,
+            bibliography=bibliography,
+            author=author,
+            year=year,
+        )
         self.status = status
         self.rank = rank
         self.family_common_name = family_common_name
@@ -94,11 +154,13 @@ class Species(Plantae):
         self.duration = duration
         self.edible_part = edible_part
         self.edible = edible
+        self.images = images
         self.common_names = common_names
         self.__dict__.update(kwargs)
 
 
-class Plant(Plantae):
+
+class Plant(Kingdom):
     """
     A plant is the main species of a species, without all the forms, varieties, subspecies etc...\n
     For each plant, we have one main species and several other "sub" species (which can be subspecies, varieties,
@@ -126,6 +188,7 @@ class Plant(Plantae):
         self.species = species
 
 
+
 class Serializer:
     """
     Convert JSON data into Python objects, passing required fields in mapping
@@ -134,7 +197,7 @@ class Serializer:
     def __init__(self, model, filepath='', data=None, models=None):
         self.model = model
         self.data = self._read_file(filepath) if data is None else data
-        self.models = models or [Plantae, SubKingdom, Division, DivisionOrder,
+        self.models = models or [Kingdom, SubKingdom, Division, DivisionOrder,
                                  DivisionClass, Family, Genus, Species, Plant]
         self.instance_list = {}
         self.merged_data = {}

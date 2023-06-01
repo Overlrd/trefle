@@ -1,6 +1,8 @@
-from dataclasses import dataclass, field
-import json
+from dataclasses import dataclass
 from typing import List, Dict, Optional, Any
+import json
+
+from .exceptions import TrefleException
 
 
 class Result:
@@ -18,121 +20,183 @@ class Result:
         self.data = data if data else []
 
 
-"""
-    Data models representing objects from the trefle api .
-    The whole API structure is defined by the following classification:
-
-
-    Kingdom
-    -> Subkingdom
-        -> Division
-        -> Division class
-            -> Division order
-            -> Family
-                -> Genus
-                -> Plant
-                    -> Species
-
-    check https://docs.trefle.io/docs/guides/getting-started#the-trefle-structure
-
-"""
-
-@dataclass(kw_only=True)
+@dataclass
 class Kingdom:
-    """
-    Represents the kingdom object
-    https://docs.trefle.io/reference/#tag/Kingdoms
-    """
-    id: int 
-    name: str = ""
+    id: int
+    name: str
     slug: str
-    links: dict
+    links: Dict
 
+    @staticmethod
+    def from_json(data) -> 'Kingdom':
+        return Kingdom(**data)
+
+    def __repr__(self) -> str:
+        return f"{self.__class__.__name__} {self.id=} {self.slug=}"
 
 
 @dataclass
 class SubKingdom(Kingdom):
     kingdom: Kingdom
 
+    @staticmethod
+    def from_json(data) -> 'SubKingdom':
+        kingdom = Kingdom.from_json(data.pop('kingdom'))
+        return SubKingdom(kingdom=kingdom, **data)
+
 
 @dataclass
 class Division(Kingdom):
     subkingdom: SubKingdom
 
+    @staticmethod
+    def from_json(data) -> 'Division':
+        subkingdom = SubKingdom.from_json(data.pop('subkingdom'))
+        return Division(subkingdom=subkingdom, **data)
 
-@dataclass 
+
+@dataclass
 class DivisionClass(Kingdom):
     division: Division
 
+    @staticmethod
+    def from_json(data) -> 'DivisionClass':
+        division = Division.from_json(data.pop('division'))
+        return DivisionClass(division=division, **data)
 
-@dataclass 
+
+@dataclass
 class DivisionOrder(Kingdom):
     division_class: DivisionClass
+
+    @staticmethod
+    def from_json(data) -> 'Kingdom':
+        division_class = DivisionClass.from_json(data.pop('division_class'))
+        return DivisionOrder(division_class=division_class, **data)
 
 
 @dataclass
 class Family(Kingdom):
     common_name: str
-    division_order: DivisionOrder
+    division_order: Optional[DivisionOrder] = None
+
+    @staticmethod
+    def from_json(data) -> 'Kingdom':
+        if 'division_order' in data:
+            division_order = DivisionOrder.from_json(data.pop('division_order'))
+        else:
+            division_order = None
+        return Family(division_order=division_order, **data)
 
 
-@dataclass 
+@dataclass
 class Genus(Kingdom):
-    family:Family
-
-
-@dataclass 
-class Plant(Kingdom):
-    common_name: None
-    image_url: None
-    scientific_name: Optional[str] = None
-    main_species_id: Optional[int] = None
-    year: Optional[int] = None
-    bibliography: Optional[str] = None
-    author: Optional[str] = None
-    family_common_name: Optional[str] = None
-    genus_id: Optional[int] = None
-    observations: Optional[str] = None
-    vegetable: Optional[bool] = None
-    main_species: Optional = None
-    genus: Optional[Genus] = None
     family: Optional[Family] = None
-    species: Optional = None
-    subspecies: Optional[List[Any]] = None
-    varieties: Optional[List[Any]] = None
-    hybrids: Optional[List[Any]] = None
-    forms: Optional[List[Any]] = None
-    subvarieties: Optional[List[Any]] = None
+
+    @staticmethod
+    def from_json(data) -> 'Kingdom':
+        if 'family' in data:
+            family = Family.from_json(data.pop('family'))
+        else:
+            family = None
+        return Genus(family=family, **data)
+
+
+@dataclass
+class Species(Kingdom):
+    common_name: str
+    scientific_name: str
+    year: int
+    bibliography: str
+    author: str
+    status: str
+    rank: str
+    family_common_name: str
+    genus_id: str
+    image_url: str
+    genus: str
+    family: str
+    observations: Optional[str]
+    vegetable: Optional[str]
+    duration: Optional[Any]
+    edible_part: Optional[Any]
+    edible: Optional[bool]
+    images: Optional[Dict] = None
+    common_names: Optional[Dict] = None
+    distribution: Optional[Dict] = None
+    distributions: Optional[Dict] = None
+    flower: Optional[Dict] = None
+    foliage: Optional[Dict] = None
+    fruit_or_seed: Optional[Dict] = None
+    specifications: Optional[Dict] = None
+    growth: Optional[Dict] = None
+    synonyms: Optional[List[Dict]] = None
     sources: Optional[List[Dict]] = None
 
-@dataclass 
-class Species(Kingdom):
-    duration: None
-    edible_part: None
-    common_name: Optional[str] = None
-    scientific_name: Optional[str] = None
-    year: Optional[int] = None
-    bibliography: Optional[str] = None
-    author: Optional[str] = None
-    status: Optional[str] = None
-    rank: Optional[str] = None
-    family_common_name: Optional[str] = None
-    genus_id: Optional[int] = None
-    observations: Optional[str] = None
-    vegetable: Optional[bool] = None
-    image_url: Optional[str] = None
-    genus: Optional[str] = None
-    family: Optional[str] = None
-    edible: Optional[bool] = None
-    images: Optional[Images] = None
-    common_names: Optional[Dict[str, List[str]]] = None
-    distribution: Optional[Distribution] = None
-    distributions: Optional[Distributions] = None
-    flower: Optional[Flower] = None
-    foliage: Optional[Foliage] = None
-    fruit_or_seed: Optional[FruitOrSeed] = None
-    specifications: Optional[Specifications] = None
-    growth: Optional[Growth] = None
-    links: Optional[DataLinks] = None
-    synonyms: Optional[List[Synonym]] = None
-    sources: Optional[List[Source]] = None
+    @staticmethod
+    def from_json(data) -> 'Species':
+        data['name'] = ""
+        return Species(**data)
+
+
+
+@dataclass
+class Plant(Kingdom):
+    common_name: str
+    scientific_name: str
+    main_species_id: int
+    image_url: str
+    year: int
+    bibliography: str
+    author: str
+    family_common_name: str
+    genus_id: int
+    observations: str
+    vegetable: bool
+    main_species: Species
+    genus: Genus
+    family: Family
+    species: Species
+    subspecies: List[Any]
+    varieties: List[Any]
+    hybrids: List[Any]
+    forms: List[Any]
+    subvarieties: List[Any]
+    sources: List[Dict]
+
+    @staticmethod
+    def from_json(data) -> 'Kingdom':
+        data['name'] = ""
+        main_species = Species.from_json(data.pop('main_species'))
+        genus = Genus.from_json(data.pop('genus'))
+        family = Family.from_json(data.pop('family'))
+        species = Species.from_json(data.pop('species'))
+        return Plant(main_species=main_species, genus=genus, family=family,
+                     species=species, **data)
+
+
+class Deserializer:
+    def __init__(self) -> None:
+        self.model = None
+        self.field = None
+
+    def deserialize(self, model: type[Kingdom], json_string: str, field: Optional[str] = 'data'):
+        self._set_model(model)
+        self._set_field(field)
+        data = json.loads(json_string, object_hook=self.custom_hook)
+        return model.from_json(data)
+
+    def custom_hook(self, obj):
+        assert isinstance(obj, dict)
+        if self.field is not None:
+            if self.field not in obj:
+                return obj
+            return obj[self.field]
+        else:
+            raise TrefleException("Error no field found !")
+
+    def _set_model(self, model):
+        self.model = model
+
+    def _set_field(self, field):
+        self.field = field

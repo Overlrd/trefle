@@ -1,12 +1,16 @@
 import json
-from pathlib import Path
 import validators.url as valid_url
 
 from trefle.URLs import URLs
-from trefle.models import Kingdom, SubKingdom, Division, DivisionClass, DivisionOrder, Family, Plant
+from trefle.models import (Kingdom, SubKingdom, Division,
+                           DivisionClass, Deserializer, DivisionOrder,
+                           Family, Genus, Plant)
 
 AllUrls = URLs()
-model_list = [Kingdom, SubKingdom, Division, DivisionClass, DivisionOrder, Family, Plant]
+model_list = [Kingdom, SubKingdom, Division, DivisionClass,
+              DivisionOrder, Family, Genus, Plant]
+MyDeserializer = Deserializer()
+
 
 class TestUrls:
     """
@@ -37,17 +41,10 @@ class TestUrls:
 
 
 class TestDataModels:
-    def test_data_models(self):
+    def test_model_deserializer(self):
         for model in model_list:
-            _path = "data/{}_data.json".format(model.__name__.lower())
-            model_data = self.get_model_data(_path)
-            feed_model = model(**model_data)
-            assert isinstance(feed_model,model)
-    
-    @staticmethod
-    def get_model_data(filepath, field='data'):
-        with open(filepath,'r') as f:
-            data = json.load(f)
-            return data.get(field,data)
-            
-
+            model_name = model.__name__.lower()
+            with open(f'trefle/data/{model_name}_data.json', 'r') as f:
+                json_string = json.dumps(json.load(f))
+                model_instance = MyDeserializer.deserialize(model, json_string)
+            assert model_instance.id is not None
