@@ -5,7 +5,7 @@ from typing import Dict, Callable
 import requests
 import requests.packages
 
-from trefle.URLs import URLs
+from trefle.URL import URLs
 from trefle.exceptions import TrefleException
 from trefle.models import Result
 

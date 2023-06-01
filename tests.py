@@ -1,14 +1,18 @@
 import json
 import validators.url as valid_url
+from random import randrange
 
-from trefle.URLs import URLs
+from trefle.URL import URLs
 from trefle.models import (Kingdom, SubKingdom, Division,
                            DivisionClass, Deserializer, DivisionOrder,
-                           Family, Genus, Plant)
+                           Family, Genus, Plant, Species)
 
-AllUrls = URLs()
 model_list = [Kingdom, SubKingdom, Division, DivisionClass,
-              DivisionOrder, Family, Genus, Plant]
+              DivisionOrder, Family, Genus, Plant, Species]
+api_settings_file_path = "trefle/api_settings.json"
+
+AllUrls = URLs(settings_path=api_settings_file_path)
+AllUrls.parse_settings()
 MyDeserializer = Deserializer()
 
 
@@ -17,28 +21,17 @@ class TestUrls:
     Use validators package to validate each url
     """
     def test_each_url(self):
-        assert valid_url(AllUrls.client_side_token_url())
-        assert valid_url(AllUrls.corrections_by_id_url().format(id=12))
-        assert valid_url(AllUrls.corrections_url())
-        assert valid_url(AllUrls.distribution_by_id_url().format(id=34))
-        assert valid_url(AllUrls.distributions_url())
-        assert valid_url(AllUrls.division_classes_url())
-        assert valid_url(AllUrls.division_orders_url())
-        assert valid_url(AllUrls.divisions_url())
-        assert valid_url(AllUrls.families_url())
-        assert valid_url(AllUrls.genus_url())
-        assert valid_url(AllUrls.kingdoms_url())
-        assert valid_url(AllUrls.plants_by_distributions_url().format(zone_id='RANDOM'))
-        assert valid_url(AllUrls.plants_by_genus_url().format(genus_id=1234))
-        assert valid_url(AllUrls.plants_url())
-        assert valid_url(AllUrls.report_plants_url().format(id=1234))
-        assert valid_url(AllUrls.report_species_url().format(id=1234))
-        assert valid_url(AllUrls.search_plants_url())
-        assert valid_url(AllUrls.search_species_url())
-        assert valid_url(AllUrls.species_url())
-        assert valid_url(AllUrls.subkingdoms_url())
-        assert valid_url(AllUrls.submit_correction_url().format(record_id=1234))
-
+        with open(api_settings_file_path, 'r') as f:
+            test_data = json.load(f)
+            test_paths = test_data['paths']
+            for i in test_paths:
+                url = getattr(AllUrls, i)
+                assert url
+                for j in url.params:
+                    if 'required' in j:
+                        r = j.split('-')[0]
+                        r_dict = {r: randrange(0, 99)}
+                        assert valid_url(url.path.format(**r_dict))
 
 class TestDataModels:
     def test_model_deserializer(self):

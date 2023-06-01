@@ -118,9 +118,9 @@ class Species(Kingdom):
     family: str
     observations: Optional[str]
     vegetable: Optional[str]
-    duration: Optional[Any]
-    edible_part: Optional[Any]
     edible: Optional[bool]
+    duration: Optional[List] = None
+    edible_part: Optional[List] = None
     images: Optional[Dict] = None
     common_names: Optional[Dict] = None
     distribution: Optional[Dict] = None
@@ -139,7 +139,6 @@ class Species(Kingdom):
         return Species(**data)
 
 
-
 @dataclass
 class Plant(Kingdom):
     common_name: str
@@ -156,7 +155,7 @@ class Plant(Kingdom):
     main_species: Species
     genus: Genus
     family: Family
-    species: Species
+    species: List[Species]
     subspecies: List[Any]
     varieties: List[Any]
     hybrids: List[Any]
@@ -167,12 +166,13 @@ class Plant(Kingdom):
     @staticmethod
     def from_json(data) -> 'Kingdom':
         data['name'] = ""
+        multi_species = []
         main_species = Species.from_json(data.pop('main_species'))
         genus = Genus.from_json(data.pop('genus'))
         family = Family.from_json(data.pop('family'))
-        species = Species.from_json(data.pop('species'))
+        multi_species.append(Species.from_json(x) for x in data.pop('species'))
         return Plant(main_species=main_species, genus=genus, family=family,
-                     species=species, **data)
+                     species=multi_species, **data)
 
 
 class Deserializer:
