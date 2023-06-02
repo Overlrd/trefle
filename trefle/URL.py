@@ -11,6 +11,7 @@ class URLs:
         self.api_version = version
         self.settings_path = settings_path
         self.base_url = None
+        self.parse_settings()
 
     def parse_settings(self):
         assert Path(self.settings_path).is_file()
@@ -34,7 +35,7 @@ class APIPath:
     path: str
     params: Optional[List]
 
-
+"""
 settings = {
     "title": "Trefle API v1",
     "version": "1.6.0",
@@ -95,3 +96,4 @@ settings = {
                                         "correction"]},
     },
 }
+ """

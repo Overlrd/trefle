@@ -5,3 +5,4 @@ __pycache__/
 .flake8
 trash*
 .vscode
+keys.ini

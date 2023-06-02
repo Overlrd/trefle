@@ -1,18 +1,17 @@
 import logging
 from json import JSONDecodeError
-from typing import Dict, Callable
+from typing import Dict, Callable, Optional, List
 
 import requests
 import requests.packages
 
-from trefle.URL import URLs
-from trefle.exceptions import TrefleException
-from trefle.models import Result
+from exceptions import TrefleException
+from models import Result
 
 
 class RestAdapter:
     def __init__(self, api_key: str, ver: str = 'v1',
-                 ssl_verify: bool = True, urls: Callable = URLs,
+                 ssl_verify: bool = True,
                  logger: logging.Logger = None):
         """
             Constructor for RestAdapter
@@ -25,7 +24,6 @@ class RestAdapter:
         """
         self._logger = logger or logging.getLogger(__name__)
         self._api_key = api_key
-        self.URLs = urls(ver)
         self._ssl_verify = ssl_verify
         if not ssl_verify:
             # noinspection PyUnresolvedReferences
@@ -76,3 +74,70 @@ class RestAdapter:
              **kwargs) -> Result:
         return self._make_request(http_method='post', url=url, ep_params=ep_params,
                                   data=data, kwargs=kwargs)
+
+
+class Query:
+    def __init__(self, q: Optional[str], id_: Optional[str], page: Optional[int]):
+        self.q = q
+        self.id_ = id_
+        self.page = page
+        self.filters = None
+        self.filter_not = None
+        self.orders = None
+        self.ranges = None
+
+    def filter_(self, field: str, values: List[str]) -> 'Query':
+        """### Filter query results based on as fields values\n
+        Full list of filters : https://docs.trefle.io/reference/#tag/Plants/operation/listPlants
+
+        Args:
+            field (str): the field to filter on
+            values (List[str]): the values to filter on , can be a single or many values
+
+        Returns:
+            Query: the Query object
+        """
+        self.filters[field] = values
+        return self
+
+    def range_(self, field: str, minval: int = None, maxval: int = None) -> 'Query':
+        """ ### filter on a range of values
+
+        Args:
+            field (str): the field filter by range on \n
+            minval (int, optional): the minimum value of the range. Defaults to 0.\n
+            maxval (int, optional): the maximum value of the range. Defaults to None.\n
+        Note:
+            ``Can specify only min or max value``
+
+        Returns:
+            Query: the Query object
+        """
+
+        self.ranges[field] = f"{minval}" if not maxval else f",{maxval}"
+        return self
+
+    def order(self, field: str, order: bool = False) -> 'Query':
+        """_summary_
+
+        Args:
+            field (str): the field to sort by
+            order (bool, optional): the order to sort in ('ascending:True','descending:False'). Defaults to False.
+        Note:
+            *Can perform multiple sorting by calling method again*
+            check : https://docs.trefle.io/docs/guides/sorting#multiple-sorting
+        """
+        self.orders[field] = "asc" if order else "desc"
+        return self
+
+    def exclude_null(self, field: str) -> 'Query':
+        """### Exclude null values\n
+
+        Args:
+            field (str): the field to filter on\n
+
+        Returns:
+            Query: the Query object
+        """
+        self.filter_not[field] = "null"
+        return self

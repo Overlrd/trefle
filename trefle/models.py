@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from typing import List, Dict, Optional, Any
 import json
 
-from .exceptions import TrefleException
+from exceptions import TrefleException
 
 
 class Result:
