@@ -1,24 +1,25 @@
 from dataclasses import dataclass
-from typing import List, Dict, Optional, Any
+from typing import List, Dict, Optional, Any, Union
 import json
 
 from exceptions import TrefleException
 
 
 class Result:
-    def __init__(self, status_code: int, message: str = '',
-                 data: List[Dict] = None):
+    def __init__(self, status_code: int, message: str = ''):
         """
         Result returned from low-level RestAdapter
         :param status_code: Standard HTTP Status code
         :param message: Human readable result
-        :param data: Python List of Dictionaries (or
-            maybe just a single Dictionary on error)
         """
         self.status_code = status_code
         self.message = str(message)
-        self.data = data if data else []
 
+@dataclass
+class ModelImage:
+    id: int
+    image_url: str
+    copyright: str
 
 @dataclass
 class Kingdom:
@@ -78,27 +79,25 @@ class DivisionOrder(Kingdom):
 @dataclass
 class Family(Kingdom):
     common_name: str
-    division_order: Optional[DivisionOrder] = None
+    division_order: Union[DivisionOrder, str] = None
 
     @staticmethod
-    def from_json(data) -> 'Kingdom':
-        if 'division_order' in data:
-            division_order = DivisionOrder.from_json(data.pop('division_order'))
-        else:
-            division_order = None
+    def from_json(data: Dict) -> 'Kingdom':
+        division_order = data.pop('division_order')
+        if isinstance(division_order, dict):
+            division_order = DivisionOrder.from_json(division_order)
         return Family(division_order=division_order, **data)
 
 
 @dataclass
 class Genus(Kingdom):
-    family: Optional[Family] = None
+    family: Union[Family, str] = None
 
     @staticmethod
     def from_json(data) -> 'Kingdom':
-        if 'family' in data:
-            family = Family.from_json(data.pop('family'))
-        else:
-            family = None
+        family = data.pop('family')
+        if isinstance(family, dict):
+            family = Family.from_json(family)
         return Genus(family=family, **data)
 
 
@@ -116,9 +115,9 @@ class Species(Kingdom):
     image_url: str
     genus: str
     family: str
-    observations: Optional[str]
-    vegetable: Optional[str]
-    edible: Optional[bool]
+    observations: Optional[str] = None
+    vegetable: Optional[str] = None
+    edible: Optional[bool] = None
     duration: Optional[List] = None
     edible_part: Optional[List] = None
     images: Optional[Dict] = None
@@ -131,7 +130,7 @@ class Species(Kingdom):
     specifications: Optional[Dict] = None
     growth: Optional[Dict] = None
     synonyms: Optional[List[Dict]] = None
-    sources: Optional[List[Dict]] = None
+    sources: Optional[List[Dict]] = None             
 
     @staticmethod
     def from_json(data) -> 'Species':
@@ -143,34 +142,40 @@ class Species(Kingdom):
 class Plant(Kingdom):
     common_name: str
     scientific_name: str
-    main_species_id: int
-    image_url: str
     year: int
     bibliography: str
     author: str
+    status: str
+    rank: str
     family_common_name: str
+    image_url: str
     genus_id: int
-    observations: str
-    vegetable: bool
-    main_species: Species
-    genus: Genus
-    family: Family
-    species: List[Species]
-    subspecies: List[Any]
-    varieties: List[Any]
-    hybrids: List[Any]
-    forms: List[Any]
-    subvarieties: List[Any]
-    sources: List[Dict]
+    synonyms: List[str]
+    vegetable: bool = None
+    observations: str = None
+    main_species: Union[Species, str] = None
+    main_species_id: int = None
+    genus: Union[Genus, str] = None
+    family: Union[Family, str] = None
+    species: List[Species] = None
+    subspecies: List[Any] = None
+    varieties: List[Any] = None
+    hybrids: List[Any] = None
+    forms: List[Any] = None
+    subvarieties: List[Any] = None
+    sources: List[Dict] = None
 
     @staticmethod
-    def from_json(data) -> 'Kingdom':
+    def from_json(data: Dict) -> 'Kingdom':
         data['name'] = ""
         multi_species = []
-        main_species = Species.from_json(data.pop('main_species'))
-        genus = Genus.from_json(data.pop('genus'))
-        family = Family.from_json(data.pop('family'))
-        multi_species.append(Species.from_json(x) for x in data.pop('species'))
+        main_species = data.pop('main_species', None)
+        genus = data.pop('genus', None)
+        family = data.pop('family', None)
+
+        if data.pop("species", None):
+            multi_species.append(Species.from_json(x) for x in data.pop('species'))
+
         return Plant(main_species=main_species, genus=genus, family=family,
                      species=multi_species, **data)
 
@@ -179,14 +184,18 @@ class Deserializer:
     def __init__(self) -> None:
         self.model = None
         self.field = None
+        self.models_out = []
 
     def deserialize(self, model: type[Kingdom], json_string: str, field: Optional[str] = 'data'):
         self._set_model(model)
         self._set_field(field)
-        data = json.loads(json_string, object_hook=self.custom_hook)
+        data = json.loads(json_string, object_hook=self._custom_hook)
+        if isinstance(data, list):
+            self._return_miltiple_instances(self.model, data)
+            return self.models_out
         return model.from_json(data)
 
-    def custom_hook(self, obj):
+    def _custom_hook(self, obj):
         assert isinstance(obj, dict)
         if self.field is not None:
             if self.field not in obj:
@@ -200,3 +209,12 @@ class Deserializer:
 
     def _set_field(self, field):
         self.field = field
+
+    def _return_miltiple_instances(self, model: Kingdom, data):
+        try:
+            for i in data:
+                self.models_out.append(model.from_json(i))
+                print('Done')
+            return True
+        except Exception as e:
+            raise TrefleException(f"error deserializing multiple instances of {model.__class__.__name__}") from e
