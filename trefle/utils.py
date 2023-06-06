@@ -1,5 +1,5 @@
 from typing import Callable
-from exceptions import TrefleException
+from .exceptions import TrefleException
 
 import configparser
 config = configparser.ConfigParser()

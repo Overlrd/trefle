@@ -3,15 +3,12 @@ Main file contains the wrappers
 """
 VERSION = 'v1'
 import json
-import inspect
 from typing import Dict
-from models import Deserializer, Kingdom, SubKingdom, Family, Plant, Species
-from utils import get_token, write_token
-from URL import URLs
-from rest_adapter import RestAdapter
-from queryset import QuerySet
-
-D = Deserializer()
+from .models import Deserializer, Kingdom
+from .utils import get_token, write_token
+from .URL import URLs
+from .rest_adapter import RestAdapter
+from .queryset import QuerySet
 
 class Trefle(QuerySet):
     def __init__(self, token: str = None, q: str = None, category: str = 'plants', request_type: str = "list"):
@@ -46,7 +43,7 @@ class Trefle(QuerySet):
         params, category, rq_type = self._build()
         model = self._map_model(category)
         _, data = self._query(params, category, rq_type)
-        models = D.deserialize(model, data)
+        models = Deserializer.deserialize(model, data)
         return models
 
     def get_json_response(self):
@@ -57,9 +54,3 @@ class Trefle(QuerySet):
 
 
 Client = Trefle(token="fb7c8Funa_gZnYU5onH0Oj79uapv-vvUMZ9tDqU0JTo")
-r = Client.search("tulip").in_("plants").range(year=[1900, 2000])
-r.show()
-data = r.get_json_response()
-print(data)
-data = r.get_data_models()
-print(data)

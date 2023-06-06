@@ -1,8 +1,8 @@
 from typing import Dict, List, Type
-from models import Kingdom
-from rest_adapter import RestAdapter
-from utils import get_token
-from validators_ import Check
+from .models import Kingdom
+from .rest_adapter import RestAdapter
+from .utils import get_token
+from .validators_ import Check
 C = Check()
 
 class QuerySet:

@@ -1,5 +1,5 @@
 from typing import Any, List, Union
-from exceptions import TrefleException
+from .exceptions import TrefleException
 
 class Check:
     # intended to be a validator class

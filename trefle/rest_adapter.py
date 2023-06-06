@@ -5,8 +5,8 @@ from typing import Dict, Callable, Optional, List
 import requests
 import requests.packages
 
-from exceptions import TrefleException
-from models import Result
+from .exceptions import TrefleException
+from .models import Result
 
 
 class RestAdapter:

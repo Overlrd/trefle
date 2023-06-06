@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from typing import List, Dict, Optional, Any, Union
 import json
 
-from exceptions import TrefleException
+from .exceptions import TrefleException
 
 
 class Result:
@@ -85,7 +85,7 @@ class Family(Kingdom):
 
     @staticmethod
     def from_json(data: Dict) -> 'Kingdom':
-        division_order = data.pop('division_order')
+        division_order = data.pop('division_order', None)
         if isinstance(division_order, dict):
             division_order = DivisionOrder.from_json(division_order)
         return Family(division_order=division_order, **data)
@@ -147,12 +147,12 @@ class Plant(Kingdom):
     year: int
     bibliography: str
     author: str
-    status: str
-    rank: str
-    family_common_name: str
-    image_url: str
-    genus_id: int
-    synonyms: List[str]
+    family_common_name: str = None
+    image_url: str = None
+    genus_id: int = None
+    status: str = None
+    rank: str = None
+    synonyms: List[str] = None
     vegetable: bool = None
     observations: str = None
     main_species: Union[Species, str] = None
@@ -174,9 +174,10 @@ class Plant(Kingdom):
         main_species = data.pop('main_species', None)
         genus = data.pop('genus', None)
         family = data.pop('family', None)
+        species = data.pop('species', None)
 
-        if data.pop("species", None):
-            multi_species.append(Species.from_json(x) for x in data.pop('species'))
+        if species is not None:
+            multi_species.append(Species.from_json(x) for x in species)
 
         return Plant(main_species=main_species, genus=genus, family=family,
                      species=multi_species, **data)
