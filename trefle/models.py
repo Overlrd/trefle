@@ -16,6 +16,8 @@ class Result:
         self.message = str(message)
 
 @dataclass
+# unused should represent images in models
+# [TODO] complete it
 class ModelImage:
     id: int
     image_url: str
@@ -130,7 +132,7 @@ class Species(Kingdom):
     specifications: Optional[Dict] = None
     growth: Optional[Dict] = None
     synonyms: Optional[List[Dict]] = None
-    sources: Optional[List[Dict]] = None             
+    sources: Optional[List[Dict]] = None
 
     @staticmethod
     def from_json(data) -> 'Species':
@@ -214,7 +216,6 @@ class Deserializer:
         try:
             for i in data:
                 self.models_out.append(model.from_json(i))
-                print('Done')
             return True
         except Exception as e:
             raise TrefleException(f"error deserializing multiple instances of {model.__class__.__name__}") from e
