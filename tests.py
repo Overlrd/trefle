@@ -13,7 +13,6 @@ api_settings_file_path = "trefle/api_settings.json"
 
 AllUrls = URLs(settings_path=api_settings_file_path)
 AllUrls.parse_settings()
-MyDeserializer = Deserializer()
 
 
 class TestUrls:
@@ -39,5 +38,5 @@ class TestDataModels:
             model_name = model.__name__.lower()
             with open(f'trefle/data/{model_name}_data.json', 'r') as f:
                 json_string = json.dumps(json.load(f))
-                model_instance = MyDeserializer.deserialize(model, json_string)
+                model_instance = Deserializer.deserialize(model, json_string)
             assert model_instance.id is not None

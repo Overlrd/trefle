@@ -2,6 +2,7 @@ import json
 from pathlib import Path
 from dataclasses import dataclass
 from typing import List, Optional
+from .settings import DATA_DIR
 
 class URLs:
     """
@@ -14,8 +15,9 @@ class URLs:
         self.parse_settings()
 
     def parse_settings(self):
-        assert Path(self.settings_path).is_file()
-        json_settings = open(self.settings_path, "r")
+        settings_path = DATA_DIR / self.settings_path
+        assert settings_path.is_file()
+        json_settings = open(settings_path, "r")
         settings = json.load(json_settings)
 
         url = settings['url'].format(version=self.api_version)

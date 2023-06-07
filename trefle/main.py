@@ -51,6 +51,3 @@ class Trefle(QuerySet):
         _, data = self._query(params, category, rq_type)
         data = json.loads(data)
         return data
-
-
-Client = Trefle(token="fb7c8Funa_gZnYU5onH0Oj79uapv-vvUMZ9tDqU0JTo")
