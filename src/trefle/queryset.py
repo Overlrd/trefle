@@ -29,11 +29,12 @@ class QuerySet:
              "species",
              "distributions"]
     OPERATIONS = ["list",
-                  "search"]
+                  "search",
+                  "retrieve"]
 
     def __init__(self, q: str = None, category: str = 'plants', request_type: str = "list"):
         self._q = q
-        self._page_id = None
+        self._page_id = 1
         self._request_type = request_type
         self._category = category
         self._filters = {}
@@ -55,6 +56,35 @@ class QuerySet:
 
     def _query(self, params: Dict, category: str, rq_type: str):
         pass
+
+    def retrieve(self, q: str):
+        """
+        retrieve:
+        ---------
+            Retrieve an object based on its `slug` or `id`.\n
+            The slug is a URL-friendly representation of the object's scientific name.\n
+            It is created by converting the scientific name to lowercase and joining\n
+            the individual words or elements with a hyphen ("-").\n
+            Searching for an object using its slug or id ensures accurate retrieval.\n
+            However, it is important to note that searching for a slug in the wrong\n
+            category will result in an empty response.\n
+        Example:
+        --------
+            Consider a plant with the scientific name "Rosa Gallica" and the slug `rosa-gallica`.\n
+            By searching for the slug `rosa-gallica` within the `plants` category,\n
+            the corresponding plant object can be retrieved.
+
+        Args:
+        -----
+            q (str): The slug or id of the object to retrieve.
+
+        Returns:
+        --------
+            object: The retrieved object matching the provided slug or id.
+
+        """
+        new_qs = self._copy_self(q=q, request_type="get")
+        return new_qs
 
     def search(self, q: str):
         """
@@ -209,14 +239,14 @@ class QuerySet:
             for key, value in data.items():
                 field_val[key] = value
             current_value = getattr(self, field)
-            field_val = field_val | current_value
+            field_val = current_value | field_val
             setattr(self, field, field_val)
 
-    def show(self):
+    def inspect(self) -> List:
         """
-        ## show\n
-            Displays the current state of the query.\n
-            Prints the values of different query parameters, including:\n
+        ## inspect\n
+            Get the current state of the query.\n
+            Returns the values of different query parameters, including:\n
             - Request type
             - Category
             - Excludes
@@ -227,15 +257,18 @@ class QuerySet:
 
             This method is useful for debugging and inspecting the query parameters.\n
             Returns:
-                None
+                List
         """
-        print(f"{self._request_type=}")
-        print(f"{self._category=}")
-        print(f"{self._excludes=}")
-        print(f"{self._filters=}")
-        print(f"{self._q=}")
-        print(f"{self._ranges=}")
-        print(f"{self._sorts=}")
+        out = [
+            f"{self._category=}",
+            f"{self._excludes=}",
+            f"{self._filters=}",
+            f"{self._q=}",
+            f"{self._ranges=}",
+            f"{self._request_type=}",
+            f"{self._sorts=}"
+        ]
+        return out
 
     def get_data_models(self) -> List[Kingdom]:
         """
@@ -269,10 +302,12 @@ class QuerySet:
         params = {}
         param_fields = [self._filters, self._excludes, self._sorts, self._ranges]
         param_fields_names = ["filter", "filter_not", "order", "range"]
-        if self._request_type == "search":
+        if self._request_type == "search" or self._request_type == "get":
+            print("get as request type")
             params["q"] = self._q
             params["page"] = self._page_id
             for field, field_name in zip(param_fields, param_fields_names):
                 for key, value in field.items():
                     params["{}[{}]".format(field_name, key)] = value
+            print("self._q", self._q)
         return params, self._category, self._request_type

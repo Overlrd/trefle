@@ -1,10 +1,28 @@
+# Virtual environment
 .venv/
+
+# IDE specific files
 .idea/
+.vscode/
+
+# Compiled Python files
 __pycache__/
+
+# Test cache
 .pytest_cache/
+
+# Code quality tools
 .flake8
+
+# Generated or temporary files
 trash*
-.vscode
+
+# Configuration files
 keys.ini
+
+# Build files
+*.egg-info/
+
+# Additional files
 test2.py
 config/

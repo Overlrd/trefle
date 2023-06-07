@@ -23,7 +23,6 @@ class RestAdapter:
         """
         self._logger = logger or logging.getLogger(__name__)
         self._api_key = api_key
-        print(self._api_key, "adapter")
 
     def _make_request(self, http_method: str, url: str, ep_params: Dict = {},
                       data: Dict = None, **kwargs) -> Result:
@@ -47,7 +46,6 @@ class RestAdapter:
         # return failed Result on exception
         try:
             data_out = response.text
-            print(data_out)
         except (ValueError, JSONDecodeError) as e:
             raise TrefleException("Bad JSON in response") from e
         # If status_code in 200-299 range, return success Result with data,

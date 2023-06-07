@@ -6,7 +6,7 @@ import json
 from typing import Dict
 from .models import Deserializer, Kingdom
 from .utils import get_token, write_token
-from .URL import URLs
+from .api_operations import APIRoutes
 from .rest_adapter import RestAdapter
 from .queryset import QuerySet
 
@@ -16,14 +16,21 @@ class Trefle(QuerySet):
         self.token = token
         write_token(token=self.token)
         self.Adapter = RestAdapter(api_key=get_token())
-        self.Urls = URLs(version=VERSION)
+        self.Urls = APIRoutes(version=VERSION)
 
     def _query(self, params: Dict, category: str, rq_type: str):
+        # when the request type is 'get' i simply add the id or slug directly in the url
+        # as requested by the trefle API.
+        # the rest of the parameters are passed though as they don't affect the response
         url = self._get_url(rq_type, category)
+        print("query params :", params)
+        if rq_type == "get":
+            id_or_slug = params["q"]
+            url = url.format(id=id_or_slug)
         result, dataout = self.Adapter.get(url=url, ep_params=params)
         return result, dataout
 
-    def _get_url(self, operation: str, category: str):
+    def _get_url(self, operation: str, category: str) -> str:
         operation_key = "".join([operation, category.capitalize()])
         url = getattr(self.Urls, operation_key)
         return url.path
@@ -43,7 +50,7 @@ class Trefle(QuerySet):
         params, category, rq_type = self._build()
         model = self._map_model(category)
         _, data = self._query(params, category, rq_type)
-        models = Deserializer.deserialize(model, data)
+        models = Deserializer().deserialize(model=model, json_string=data)
         return models
 
     def get_json_response(self):

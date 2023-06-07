@@ -13,18 +13,19 @@ class Check:
                     "filter_not",
                     "order",
                     "range"]
-    ITEMS = ["kingdoms",
-             "subkingdoms",
-             "divisions",
-             "divisionclasses",
-             "divisionorders",
-             "families",
-             "genus",
-             "plants",
-             "species",
-             "distributions"]
+    CATEGORIES = ["kingdoms",
+                  "subkingdoms",
+                  "divisions",
+                  "divisionclasses",
+                  "divisionorders",
+                  "families",
+                  "genus",
+                  "plants",
+                  "species",
+                  "distributions"]
     OPERATIONS = ["list",
-                  "search"]
+                  "search",
+                  "retrieve"]
 
     def __init__(self) -> None:
         pass
@@ -48,5 +49,5 @@ class Check:
 
     def __call__(self, q: Union[str, List], to_check: str = None) -> Any:
         if not to_check:
-            to_check = self.PARAM_FIELDS + self.ITEMS + self.OPERATIONS
+            to_check = self.PARAM_FIELDS + self.CATEGORIES + self.OPERATIONS
         return self.check(q=q, to_check=to_check)

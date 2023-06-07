@@ -2,20 +2,20 @@ import json
 from pathlib import Path
 from dataclasses import dataclass
 from typing import List, Optional
-from .settings import DATA_DIR
+from .settings import Paths
 
-class URLs:
+class APIRoutes:
     """
-    This class contains the urls of all the routes of the trefle API
+    This class contains the available operations , their urls
+    and their parameters of the trefle API
     """
-    def __init__(self, version: str = 'v1', settings_path: str = "api_settings.json"):
+    def __init__(self, version: str = 'v1'):
         self.api_version = version
-        self.settings_path = settings_path
         self.base_url = None
         self.parse_settings()
 
     def parse_settings(self):
-        settings_path = DATA_DIR / self.settings_path
+        settings_path = Paths['api_settings']
         assert settings_path.is_file()
         json_settings = open(settings_path, "r")
         settings = json.load(json_settings)
@@ -37,8 +37,8 @@ class APIPath:
     path: str
     params: Optional[List]
 
-"""
-settings = {
+
+__settings = {
     "title": "Trefle API v1",
     "version": "1.6.0",
     "url": "https://trefle.io/api/{version}",
@@ -98,4 +98,3 @@ settings = {
                                         "correction"]},
     },
 }
- """
