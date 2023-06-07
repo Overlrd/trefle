@@ -2,8 +2,9 @@ from typing import Dict, List, Type
 from .models import Kingdom
 from .rest_adapter import RestAdapter
 from .utils import get_token
-from .validators_ import Check
-C = Check()
+from .custom_validators import Mapper
+Map = Mapper()
+
 
 class QuerySet:
     """
@@ -128,7 +129,7 @@ class QuerySet:
             Example:
                 `Client.list('plants').filter(key=value)`
         """
-        new_qs = self._copy_self(category=C(category), request_type="list")
+        new_qs = self._copy_self(category=Map(category), request_type="list")
         return new_qs
 
     def in_(self, category: str):
@@ -155,7 +156,7 @@ class QuerySet:
             Example:
                 `Client.search('tulip').in_('plants').exclude(key=value)`
         """
-        self._category = C(category)
+        self._category = Map(category)
         return self
 
     def filter(self, **kwargs):
@@ -177,9 +178,10 @@ class QuerySet:
 
     def sort_by(self, **kwargs):
         """
-        ## sort_by\n
+        sort_by:
+        --------
             Adds sorting parameters to the query.\n
-            Args:\n
+            Args:
                 **kwargs: Key-value pairs representing sorting parameters.\n
             Returns:\n
                 self: Returns an updated copy of self to allow chaining with other functions.\n
@@ -272,24 +274,32 @@ class QuerySet:
 
     def get_data_models(self) -> List[Kingdom]:
         """
-        ## get_data_models\n
-            Retrieves data models from the JSON response of the API.\n
-            Returns:\n
+        get_data_models:
+        -----------------
+            Retrieves data models embedding the JSON response of the API.\n
+            a model will contain all availbale fields in the response as methods\n
+            Returns:
+            --------
                 List[model]: A list of models with a length equal to the number of items in the request response.
         """
         pass
 
     def get_json_response(self) -> Dict:
         """
-        ## get_json_response: Retrieves the formatted JSON response from the API.\n
-        Args:\n
-            None\n
-        Returns:\n
+        get_json_response:
+        ------------------
+        Retrieves the formatted JSON response from the API.\n
+        Args:
+        ----
+            None
+
+        Returns:
+        --------
             dict: A Python dictionary containing the JSON response from the API.\n
             Keys:\n
-                - 'data': The response body, which can be a list of items or a single item.\n
-                - 'links' (absent when getting an item by ID): The API routes of the current request,
-                including the first and last pages of the search results.\n
+                - 'data': The response body, which can be a list of items or a single item.
+                - 'links': (absent when getting an item by ID): The API routes of the current request,
+                including the first and last pages of the search results.
                 - 'meta': Contains the total count of items in the results (across all pages).
         """
         pass

@@ -4,10 +4,8 @@ from typing import Dict, Callable, Optional, List
 
 import requests
 import requests.packages
-
 from .exceptions import TrefleException
 from .models import Result
-
 
 class RestAdapter:
     def __init__(self, api_key: str, ver: str = 'v1',

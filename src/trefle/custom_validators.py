@@ -1,7 +1,7 @@
 from typing import Any, List, Union
 from .exceptions import TrefleException
 
-class Check:
+class Mapper:
     # intended to be a validator class
     # should check for each param if the given value is accepted by the API
     # for filter, filter_not,range,order supported fileds check :
