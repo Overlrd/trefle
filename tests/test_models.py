@@ -13,7 +13,7 @@ DATA_PATH = THIS_DIR / "data"
 class TestDataModels:
     """ 
         As all the object returned by the trefle api always have an unique id and slug
-        the test assert on these fiels
+        the test assert on these fields
     """
     def test_model_deserializer(self):
         for model in model_list:

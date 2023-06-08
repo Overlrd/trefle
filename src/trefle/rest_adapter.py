@@ -1,29 +1,30 @@
 import logging
 from json import JSONDecodeError
-from typing import Dict, Callable, Optional, List
+from typing import Dict, Any
 
 import requests
 import requests.packages
+
 from .exceptions import TrefleException
 from .models import Result
 
+
 class RestAdapter:
-    def __init__(self, api_key: str, ver: str = 'v1',
+    def __init__(self, api_key: str,
                  logger: logging.Logger = None):
         """
             Constructor for RestAdapter
             :param api_key:
-            :param ver:
-            :param ssl_verify: Normally set to True, but if having SSL/TLS
-              cert validation issues, can turn off with False
             :param logger: (optional) If your app has a logger,
               pass it in here.
         """
         self._logger = logger or logging.getLogger(__name__)
         self._api_key = api_key
 
-    def _make_request(self, http_method: str, url: str, ep_params: Dict = {},
-                      data: Dict = None, **kwargs) -> Result:
+    def _make_request(self, http_method: str, url: str, ep_params=None,
+                      data: Dict = None, **kwargs) -> (Result, Any):
+        if ep_params is None:
+            ep_params = {}
         if kwargs:
             url = url.format(**kwargs)
         ep_params["token"] = self._api_key
@@ -57,11 +58,16 @@ class RestAdapter:
         self._logger.error(msg=log_line)
         raise TrefleException(f"{response.status_code}: {response.reason}")
 
-    def get(self, url: str, ep_params: Dict = {}, **kwargs) -> Result:
+    def get(self, url: str, ep_params=None, **kwargs) -> Result:
+        if ep_params is None:
+            ep_params = {}
+        print(ep_params)
         return self._make_request(http_method='get', url=url, ep_params=ep_params,
                                   kwargs=kwargs)
 
-    def post(self, url: str, ep_params: Dict = {}, data: Dict = None,
+    def post(self, url: str, ep_params=None, data: Dict = None,
              **kwargs) -> Result:
+        if ep_params is None:
+            ep_params = {}
         return self._make_request(http_method='post', url=url, ep_params=ep_params,
                                   data=data, kwargs=kwargs)

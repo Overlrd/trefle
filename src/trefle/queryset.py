@@ -1,8 +1,8 @@
-from typing import Dict, List, Type
-from .models import Kingdom
-from .rest_adapter import RestAdapter
-from .utils import get_token
+from typing import Dict, List
+
 from .custom_validators import Mapper
+from .models import Kingdom
+
 Map = Mapper()
 
 
@@ -12,10 +12,10 @@ class QuerySet:
         A class representing a query set for building complex queries.\n
         Inspired by 'https://github.com/ecederstrand/exchangelib/blob/master/exchangelib/queryset.py'\n
         Support chaining methods\n
-        the `_build` method generate a dictionnary intended for request parameters containing\n
+        the `_build` method generate a dictionary intended for request parameters containing\n
         the current attributes of the class instance\n
-        the `get_json_response` and `get_data_models` are empty and intended to be overwrited by \n
-        the `Trefle` main class. i keep them here for simplicity\n
+        the `get_json_response` and `get_data_models` are empty and intended to be overwritten by \n
+        the `Trefle` main class. I keep them here for simplicity\n
         Returns:\n
             QuerySet: An instance of the `QuerySet` class representing a query set.\n
     """
@@ -47,8 +47,9 @@ class QuerySet:
         # function to copy the current class
         # serve the purpose of creating a copy of the current class instance with the option to override
         # specific attributes
-        # facilitate bulding variations of the query and chaining operations
-        new_qs = self.__class__(token=get_token(), q=q, category=category, request_type=request_type)
+        # facilitate building variations of the query and chaining operations
+        # Passing self.token as token, happening in the child class.
+        new_qs = self.__class__(token=self.token, q=q, category=category, request_type=request_type)
         new_qs._filters = self._filters
         new_qs._excludes = self._excludes
         new_qs._sorts = self._sorts
@@ -138,7 +139,7 @@ class QuerySet:
             use only with `search` as `list` already contains a category
 
             Args:
-                category (str): the caterory to search in. Available categories:\n
+                category (str): the category to search in. Available categories:\n
                     - "kingdoms"
                     - "subkingdoms"
                     - "divisions"
@@ -239,6 +240,8 @@ class QuerySet:
         field_val = {}
         if isinstance(data, dict):
             for key, value in data.items():
+                if type(value) is list :
+                    value = ','.join(map(str, value))
                 field_val[key] = value
             current_value = getattr(self, field)
             field_val = current_value | field_val
@@ -272,19 +275,19 @@ class QuerySet:
         ]
         return out
 
-    def get_data_models(self) -> List[Kingdom]:
+    def get_models(self) -> List[Kingdom]:
         """
         get_data_models:
         -----------------
             Retrieves data models embedding the JSON response of the API.\n
-            a model will contain all availbale fields in the response as methods\n
+            a model will contain all available fields in the response as methods\n
             Returns:
             --------
                 List[model]: A list of models with a length equal to the number of items in the request response.
         """
         pass
 
-    def get_json_response(self) -> Dict:
+    def get_json(self) -> Dict:
         """
         get_json_response:
         ------------------
@@ -306,9 +309,9 @@ class QuerySet:
 
     def _build(self):
         # create a dict with the class attributes
-        # in order to do multiple sorting-filtering-excuding , the trefle API,
+        # in order to do multiple sorting-filtering-excluding , the trefle API,
         # waits for prams structured like 'api_url/?token=token&filter[baz]=bar&filter[foo]=baz'
-        # it's the reason why i wrote the implementation of line 267
+        # it's the reason why I wrote the implementation of line 267
         params = {}
         param_fields = [self._filters, self._excludes, self._sorts, self._ranges]
         param_fields_names = ["filter", "filter_not", "order", "range"]
@@ -318,6 +321,6 @@ class QuerySet:
             params["page"] = self._page_id
             for field, field_name in zip(param_fields, param_fields_names):
                 for key, value in field.items():
-                    params["{}[{}]".format(field_name, key)] = value
-            print("self._q", self._q)
+                    params["{}[{}]".format(field_name, key)] = ','.join(value) if type(value) is list else value
+        print("params from build: ", params)
         return params, self._category, self._request_type
