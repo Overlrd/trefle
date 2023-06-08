@@ -18,6 +18,7 @@ class TestDataModels:
     def test_model_deserializer(self):
         for model in model_list:
             model_name = model.__name__.lower()
+            print(model_name)
             with open(f'{DATA_PATH}/{model_name}_data.json', 'r') as f:
                 json_string = json.dumps(json.load(f))
                 model_instance = Deserializer().deserialize(model, json_string)

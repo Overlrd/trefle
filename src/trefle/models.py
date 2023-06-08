@@ -194,6 +194,26 @@ class Plant(Kingdom):
                      species=multi_species, **data)
 
 
+@dataclass
+class Distribution(Kingdom):
+    _category = "distributions"
+    tdwg_code: str = None
+    tdwg_level: str = None
+    species_count: str = None
+    parent: Any = None
+    children: Any = None
+
+    @staticmethod
+    def from_json(data) -> 'Kingdom':
+        parent = data.pop("parent", None)
+        children = data.pop("children", None)
+        if parent is not None:
+            parent = Distribution(**parent)
+        if children is not None:
+            children = Distribution(**children)
+        return Distribution(parent=parent, children=children, **data)
+
+
 class Deserializer:
     def __init__(self) -> None:
         self.model = None
@@ -205,7 +225,7 @@ class Deserializer:
         self._set_field(field)
         data = json.loads(json_string, object_hook=self._custom_hook)
         if isinstance(data, list):
-            self._return_miltiple_instances(self.model, data)
+            self._return_multiple_instances(self.model, data)
             return self.models_out
         return model.from_json(data)
 
@@ -224,7 +244,7 @@ class Deserializer:
     def _set_field(self, field):
         self.field = field
 
-    def _return_miltiple_instances(self, model: Kingdom, data):
+    def _return_multiple_instances(self, model: Kingdom, data):
         try:
             for i in data:
                 self.models_out.append(model.from_json(i))

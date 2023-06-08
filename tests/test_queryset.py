@@ -1,5 +1,8 @@
-import pytest
+import json
 
+import pytest
+import responses
+import requests
 from trefle import Trefle
 
 
@@ -30,7 +33,7 @@ def simple_retrieve_build_output():
     return ({'q': 'rudolfiella-peruviana', 'page': 1}, 'plants', 'get')
 
 
-class TestQueryset:
+class TestQueryBuild:
     def test_direct_query_bulding(self, simple_query_input):
         data = simple_query_input
         Client = Trefle(**data)
