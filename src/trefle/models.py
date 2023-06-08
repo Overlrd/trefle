@@ -1,6 +1,6 @@
+import json
 from dataclasses import dataclass
 from typing import List, Dict, Optional, Any, Union
-import json
 
 from .exceptions import TrefleException
 
@@ -15,6 +15,7 @@ class Result:
         self.status_code = status_code
         self.message = str(message)
 
+
 @dataclass
 # unused should represent images in models
 # [TODO] complete it
@@ -23,8 +24,10 @@ class ModelImage:
     image_url: str
     copyright: str
 
+
 @dataclass
 class Kingdom:
+    _category = "kingdoms"
     id: int
     name: str
     slug: str
@@ -40,6 +43,7 @@ class Kingdom:
 
 @dataclass
 class SubKingdom(Kingdom):
+    _category = "subkingdoms"
     kingdom: Kingdom
 
     @staticmethod
@@ -50,6 +54,7 @@ class SubKingdom(Kingdom):
 
 @dataclass
 class Division(Kingdom):
+    _category = "divisions"
     subkingdom: SubKingdom
 
     @staticmethod
@@ -60,6 +65,7 @@ class Division(Kingdom):
 
 @dataclass
 class DivisionClass(Kingdom):
+    _category = "divisionclasses"
     division: Division
 
     @staticmethod
@@ -70,6 +76,7 @@ class DivisionClass(Kingdom):
 
 @dataclass
 class DivisionOrder(Kingdom):
+    _category = "divisionorders"
     division_class: DivisionClass
 
     @staticmethod
@@ -80,6 +87,7 @@ class DivisionOrder(Kingdom):
 
 @dataclass
 class Family(Kingdom):
+    _category = "families"
     common_name: str
     division_order: Union[DivisionOrder, str] = None
 
@@ -93,6 +101,7 @@ class Family(Kingdom):
 
 @dataclass
 class Genus(Kingdom):
+    _category = "genus"
     family: Union[Family, str] = None
 
     @staticmethod
@@ -105,6 +114,7 @@ class Genus(Kingdom):
 
 @dataclass
 class Species(Kingdom):
+    _category = "species"
     common_name: str
     scientific_name: str
     year: int
@@ -142,6 +152,7 @@ class Species(Kingdom):
 
 @dataclass
 class Plant(Kingdom):
+    _category = "plants"
     common_name: str
     scientific_name: str
     year: int

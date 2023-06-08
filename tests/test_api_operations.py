@@ -5,7 +5,7 @@ from random import randrange
 from trefle.settings import Paths
 from trefle.api_operations import APIRoutes
 
-api_oprations_path = Paths['api_settings']
+api_operations_path = Paths['api_settings']
 Routes = APIRoutes()
 
 class TestUrls:
@@ -13,7 +13,7 @@ class TestUrls:
     Use validators package to validate each url
     """
     def test_each_url(self):
-        with open(api_oprations_path, 'r') as f:
+        with open(api_operations_path, 'r') as f:
             test_data = json.load(f)
             test_paths = test_data['paths']
             for i in test_paths:

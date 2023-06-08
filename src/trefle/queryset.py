@@ -19,21 +19,7 @@ class QuerySet:
         Returns:\n
             QuerySet: An instance of the `QuerySet` class representing a query set.\n
     """
-    ITEMS = ["kingdoms",
-             "subkingdoms",
-             "divisions",
-             "divisionclasses",
-             "divisionorders",
-             "families",
-             "genus",
-             "plants",
-             "species",
-             "distributions"]
-    OPERATIONS = ["list",
-                  "search",
-                  "retrieve"]
-
-    def __init__(self, q: str = None, category: str = 'plants', request_type: str = "list"):
+    def __init__(self, q: str = None, category: str = 'plants', request_type: str = "search"):
         self._q = q
         self._page_id = 1
         self._request_type = request_type
@@ -130,7 +116,7 @@ class QuerySet:
             Example:
                 `Client.list('plants').filter(key=value)`
         """
-        new_qs = self._copy_self(category=Map(category), request_type="list")
+        new_qs = self._copy_self(category=Map.check_cat(category), request_type="list")
         return new_qs
 
     def in_(self, category: str):
@@ -157,7 +143,7 @@ class QuerySet:
             Example:
                 `Client.search('tulip').in_('plants').exclude(key=value)`
         """
-        self._category = Map(category)
+        self._category = Map.check_cat(category)
         return self
 
     def filter(self, **kwargs):
@@ -312,15 +298,14 @@ class QuerySet:
         # in order to do multiple sorting-filtering-excluding , the trefle API,
         # waits for prams structured like 'api_url/?token=token&filter[baz]=bar&filter[foo]=baz'
         # it's the reason why I wrote the implementation of line 267
-        params = {}
+        params = {"page": self._page_id}
         param_fields = [self._filters, self._excludes, self._sorts, self._ranges]
         param_fields_names = ["filter", "filter_not", "order", "range"]
         if self._request_type == "search" or self._request_type == "get":
-            print("get as request type")
             params["q"] = self._q
-            params["page"] = self._page_id
-            for field, field_name in zip(param_fields, param_fields_names):
-                for key, value in field.items():
-                    params["{}[{}]".format(field_name, key)] = ','.join(value) if type(value) is list else value
-        print("params from build: ", params)
+        for field, field_name in zip(param_fields, param_fields_names):
+            for key, value in field.items():
+                params["{}[{}]".format(field_name, key)] = ','.join(value) if type(value) is list else value
+        out = (params,)
+        out += Map.check_op(self._request_type, self._category)
         return params, self._category, self._request_type

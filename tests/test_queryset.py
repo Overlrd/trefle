@@ -18,7 +18,13 @@ def simple_build_output():
     return ({'q': 'tulip', 'page': 1, 'filter[author]': 'L.', 'filter_not[common_name]': 'null', 'order[name]': 'asc', 'range[year]': '1900,2000'}
             , 'plants', 'search')
 
+@pytest.fixture
+def not_support_search_categories():
+    return ["kingdoms","subkingdoms","divisions","divisionclasses","divisionorders","families","genus","distributions"]
 
+@pytest.fixture
+def support_search_categories():
+    return ["plants","species"]
 @pytest.fixture
 def simple_retrieve_build_output():
     return ({'q': 'rudolfiella-peruviana', 'page': 1}, 'plants', 'get')
@@ -53,3 +59,20 @@ class TestQueryset:
         Q = Client.search("rose").in_("plants").filter(family="Rosaceae").sort_by(slug="asc").range(year=[1980, 2010]).exclude(common_name="null")
         R = Q._build()
         assert R
+
+    def test_retrieve_family(self):
+        Client = Trefle("AZERTYUIOP")
+        Q = Client.retrieve("1").in_("families")._build()
+        assert Q
+
+    def test_search_no_search_support_categories(self, not_support_search_categories):
+        Client = Trefle("AZERTYUIOP")
+        for i in not_support_search_categories:
+            with pytest.raises(Exception) as e_info:
+                Q = Client.search("foo").in_(i)._build()
+
+    def test_seach_support_categories(self, support_search_categories):
+        Client = Trefle("AZERTYUIOP")
+        for i in support_search_categories:
+            Q = Client.search("foo").in_(i)._build()
+            assert Q
