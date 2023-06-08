@@ -1,8 +1,0 @@
-#!/media/sudo800/75118e0e-b1a3-4612-85eb-d013446e595e/home/sudooverlord/Projects/web/Flowerz/Trefle-api/.dev-env/bin/python3
-# -*- coding: utf-8 -*-
-import re
-import sys
-from pip._internal.cli.main import main
-if __name__ == '__main__':
-    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
-    sys.exit(main())
