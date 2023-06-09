@@ -32,7 +32,7 @@ This package allows you to build simple to more complex queries to fetch data fr
 - `in_()`
   - Description: Select a category in which to search or retrieve.
   - Args:
-    - `category`: Check the list of [available categories](#Available Categorie).
+    - `category`: Check the list of [available categories](#Available-Categories).
 
 - `filter()`
   - Description: Filter the search or retrieval results based on specific criteria.
