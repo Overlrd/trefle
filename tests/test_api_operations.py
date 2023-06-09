@@ -2,11 +2,12 @@ import json
 import validators.url as valid_url
 from random import randrange
 
-from trefle.settings import Paths
-from trefle.api_operations import APIRoutes
+from trefleapi.settings import Paths
+from trefleapi.api_operations import APIRoutes
 
 api_operations_path = Paths['api_settings']
 Routes = APIRoutes()
+
 
 class TestUrls:
     """

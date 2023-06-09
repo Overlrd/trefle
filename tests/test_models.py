@@ -1,14 +1,15 @@
 from pathlib import Path
 import json
-from trefle.models import (Kingdom, SubKingdom, Division,
-                           DivisionClass, Deserializer, DivisionOrder,
-                           Family, Genus, Plant, Species)
+from trefleapi.models import (Kingdom, SubKingdom, Division,
+                              DivisionClass, Deserializer, DivisionOrder,
+                              Family, Genus, Plant, Species)
 
 model_list = [Kingdom, SubKingdom, Division, DivisionClass,
               DivisionOrder, Family, Genus, Plant, Species]
 
 THIS_DIR = Path(__file__).parent
 DATA_PATH = THIS_DIR / "data"
+
 
 class TestDataModels:
     """ 

@@ -1,6 +1,7 @@
 # Virtual environment
 .venv/
 *-env/
+*_env/
 
 # IDE specific files
 .idea/
@@ -23,7 +24,8 @@ keys.ini
 
 # Build files
 *.egg-info/
-
+build/
+dist/
 # Additional files
 test2.py
 config/

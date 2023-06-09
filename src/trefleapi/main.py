@@ -1,7 +1,6 @@
 """
 Main file contains the wrappers
 """
-VERSION = 'v1'
 import json
 from typing import Dict
 
@@ -10,8 +9,10 @@ from .models import Deserializer, Kingdom
 from .queryset import QuerySet
 from .rest_adapter import RestAdapter
 
+VERSION = 'v1'
 
-class Trefle(QuerySet):
+
+class Client(QuerySet):
     def __init__(self, token: str = None, q: str = None, category: str = 'plants', request_type: str = "list"):
         super().__init__(q=q, category=category, request_type=request_type)
         self.token = token
