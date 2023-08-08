@@ -22,7 +22,10 @@ This package allows you to build simple to more complex queries to fetch data fr
   - Args:
     - `q`: The string to use as a query.
   - Returns: A copy of the `Query` class to allow chaining.
-
+- `list()`
+  - Description: List plants of a category
+  - Args:
+    - `category`: Check the list of [available categories](#Available-Categories).
 - `retrieve()`
   - Description: Retrieve an item based on its slug or ID.
   - Args:
