@@ -1,9 +1,8 @@
 from typing import Dict, List
-
-from .custom_validators import Mapper
+from .utils import InputCheck
 from .models import Kingdom
 
-Map = Mapper()
+Check = InputCheck()
 
 
 class QuerySet:
@@ -19,8 +18,8 @@ class QuerySet:
         Returns:\n
             QuerySet: An instance of the `QuerySet` class representing a query set.\n
     """
-    def __init__(self, q: str = None, category: str = 'plants', request_type: str = "search"):
-        self._q = q
+    def __init__(self, query: str = None, category: str = 'plants', request_type: str = "search"):
+        self._q = query
         self._page_id = 1
         self._request_type = request_type
         self._category = category
@@ -29,23 +28,20 @@ class QuerySet:
         self._sorts = {}
         self._ranges = {}
 
-    def _copy_self(self, q=None, category=None, request_type=None):
+    def _copy_self(self, query=None, category=None, request_type=None):
         # function to copy the current class
         # serve the purpose of creating a copy of the current class instance with the option to override
         # specific attributes
         # facilitate building variations of the query and chaining operations
         # Passing self.token as token, happening in the child class.
-        new_qs = self.__class__(token=self.token, q=q, category=category, request_type=request_type)
+        new_qs = self.__class__(query=query, category=category, request_type=request_type)
         new_qs._filters = self._filters
         new_qs._excludes = self._excludes
         new_qs._sorts = self._sorts
         new_qs._ranges = self._ranges
         return new_qs
 
-    def _query(self, params: Dict, category: str, rq_type: str):
-        pass
-
-    def retrieve(self, q: str):
+    def retrieve(self, query: str):
         """
         retrieve:
         ---------
@@ -71,10 +67,10 @@ class QuerySet:
             object: The retrieved object matching the provided slug or id.
 
         """
-        new_qs = self._copy_self(q=q, request_type="get")
+        new_qs = self._copy_self(query=query, request_type="get")
         return new_qs
 
-    def search(self, q: str):
+    def search(self, query: str):
         """
         ## search
             If called after `list` (which is to be avoided), it will preserve filters, sorters, excludes, and ranges.\n
@@ -88,7 +84,7 @@ class QuerySet:
             Example:
                 `Client.search('tulip').in_('plants').exclude(key=value)`
         """
-        new_qs = self._copy_self(q=q, request_type="search")
+        new_qs = self._copy_self(query=query, request_type="search")
         return new_qs
 
     def list(self, category: str):
@@ -116,7 +112,7 @@ class QuerySet:
             Example:
                 `Client.list('plants').filter(key=value)`
         """
-        new_qs = self._copy_self(category=Map.check_cat(category), request_type="list")
+        new_qs = self._copy_self(category=Check.check_cat(category), request_type="list")
         return new_qs
 
     def in_(self, category: str):
@@ -143,7 +139,7 @@ class QuerySet:
             Example:
                 `Client.search('tulip').in_('plants').exclude(key=value)`
         """
-        self._category = Map.check_cat(category)
+        self._category = Check.check_cat(category)
         return self
 
     def filter(self, **kwargs):
@@ -222,11 +218,11 @@ class QuerySet:
 
     def _add_field(self, field: str, data):
         # the code for updating fields started to out of the DRY principe
-        # this method update a given attribute value
+        # this method updates a given attribute value
         field_val = {}
         if isinstance(data, dict):
             for key, value in data.items():
-                if type(value) is list :
+                if isinstance(value, list):
                     value = ','.join(map(str, value))
                 field_val[key] = value
             current_value = getattr(self, field)
@@ -296,8 +292,7 @@ class QuerySet:
     def _build(self):
         # create a dict with the class attributes
         # in order to do multiple sorting-filtering-excluding , the trefle API,
-        # waits for prams structured like 'api_url/?token=token&filter[baz]=bar&filter[foo]=baz'
-        # it's the reason why I wrote the implementation of line 267
+        # waits for params structured like 'api_url/?token=token&filter[baz]=bar&filter[foo]=baz'
         params = {"page": self._page_id}
         param_fields = [self._filters, self._excludes, self._sorts, self._ranges]
         param_fields_names = ["filter", "filter_not", "order", "range"]
@@ -305,7 +300,7 @@ class QuerySet:
             params["q"] = self._q
         for field, field_name in zip(param_fields, param_fields_names):
             for key, value in field.items():
-                params["{}[{}]".format(field_name, key)] = ','.join(value) if type(value) is list else value
+                params["{}[{}]".format(field_name, key)] = ','.join(value) if isinstance(value, list) else value
         out = (params,)
-        out += Map.check_op(self._request_type, self._category)
+        out += Check.check_op(self._request_type, self._category)
         return params, self._category, self._request_type

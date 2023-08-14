@@ -4,6 +4,8 @@ from typing import List, Dict, Optional, Any, Union
 
 from .exceptions import TrefleException
 
+# TODO Extend base Plantae model
+
 
 class Result:
     def __init__(self, status_code: int, message: str = ''):
