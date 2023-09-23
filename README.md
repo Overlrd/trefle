@@ -2,6 +2,11 @@
 
 *Trefle-API* is a simple python API wrapper for the [trefle](https://trefle.io./) botanic data API
 
+## Install
+´´´bash
+$ pip install trefleapi
+´´´
+## Use
 ```python
 >>> from trefleapi import Client
 >>> Query = Client(token=token)
@@ -111,3 +116,11 @@ The following are the available categories representing items in the vegetable (
 Please note that categories should be passed only in the `list` method or the `.in_` method. The '.in_' method allows selecting a specific category in which to search or retrieve items.
 
 These categories provide a way to organize and classify different aspects of the vegetable world, allowing for more targeted queries and retrieval of specific plant-related information.
+
+## Additional Infos
+This wrapper is a toy-project i've written for the [Flowerz Web App](https://github.com/Overlrd/Flowerz) as my capstone project for the [CS50w](https://cs50.harvard.edu/web/2020/).
+I will stop maintaining it when i judge it stable enough or had enough fun writting it.
+
+
+[**Pypi link**](https://pypi.org/project/trefleapi/)
+
