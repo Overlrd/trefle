@@ -3,9 +3,10 @@
 *Trefle-API* is a simple python API wrapper for the [trefle](https://trefle.io./) botanic data API
 
 ## Install
-´´´bash
+
+```bash
 $ pip install trefleapi
-´´´
+```
 ## Use
 ```python
 >>> from trefleapi import Client
